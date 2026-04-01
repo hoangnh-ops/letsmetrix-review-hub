@@ -11,11 +11,11 @@ export const appInfo = {
 };
 
 export const sentimentScores = [
-  { label: "Hỗ trợ", score: 8.7, trend: "up" as const, delta: "+0.3" },
-  { label: "Dễ sử dụng", score: 7.2, trend: "up" as const, delta: "+0.1" },
-  { label: "Hiệu suất", score: 6.8, trend: "down" as const, delta: "-0.5" },
-  { label: "Độ tin cậy", score: 5.4, trend: "flat" as const, delta: "0.0" },
-  { label: "Giá trị giá", score: 7.9, trend: "up" as const, delta: "+0.2" },
+  { label: "Support", score: 8.7, trend: "up" as const, delta: "+0.3" },
+  { label: "Ease of Use", score: 7.2, trend: "up" as const, delta: "+0.1" },
+  { label: "Performance", score: 6.8, trend: "down" as const, delta: "-0.5" },
+  { label: "Reliability", score: 5.4, trend: "flat" as const, delta: "0.0" },
+  { label: "Value for Money", score: 7.9, trend: "up" as const, delta: "+0.2" },
 ];
 
 export const spikeAlerts = [
@@ -29,18 +29,18 @@ export const spikeAlerts = [
 ];
 
 export const strengths = [
-  { title: "Hỗ trợ khách hàng nhanh chóng", count: 342, quote: "Support team replied within 5 minutes!" },
-  { title: "Giao diện trực quan, dễ dùng", count: 281, quote: "Very intuitive UI, no learning curve" },
-  { title: "Tích hợp Shopify mượt mà", count: 198, quote: "Seamless integration with our store" },
-  { title: "Giá cả hợp lý", count: 156, quote: "Great value for the price" },
-  { title: "Cập nhật liên tục", count: 134, quote: "They keep improving the app" },
+  { title: "Fast & responsive customer support", count: 342, quote: "Support team replied within 5 minutes!" },
+  { title: "Intuitive and easy-to-use interface", count: 281, quote: "Very intuitive UI, no learning curve" },
+  { title: "Seamless Shopify integration", count: 198, quote: "Seamless integration with our store" },
+  { title: "Fair and competitive pricing", count: 156, quote: "Great value for the price" },
+  { title: "Frequent updates & improvements", count: 134, quote: "They keep improving the app" },
 ];
 
 export const weaknesses = [
-  { title: "Thiết lập ban đầu phức tạp", severity: 89, count: 187, isSpike: true, spikePct: 340 },
-  { title: "Tốc độ tải chậm", severity: 72, count: 124 },
-  { title: "Thiếu tùy chỉnh giao diện", severity: 45, count: 87 },
-  { title: "Báo cáo chưa chi tiết", severity: 38, count: 65 },
+  { title: "Complex initial setup process", severity: 89, count: 187, isSpike: true, spikePct: 340 },
+  { title: "Slow page loading speed", severity: 72, count: 124 },
+  { title: "Limited UI customization options", severity: 45, count: 87 },
+  { title: "Basic reporting features", severity: 38, count: 65 },
 ];
 
 export const featureRequests = [
@@ -55,11 +55,11 @@ export const featureRequests = [
 ];
 
 export const actionItems = [
-  { priority: "P0" as const, title: "Cải thiện quy trình thiết lập ban đầu", description: "Tạo setup wizard 3 bước đơn giản thay vì form dài", impact: 23, triggerCount: 187 },
-  { priority: "P0" as const, title: "Tối ưu tốc độ tải trang", description: "Áp dụng lazy loading và cache API responses", impact: 18, triggerCount: 124 },
-  { priority: "P1" as const, title: "Thêm template tùy chỉnh giao diện", description: "Cho phép người dùng chọn theme và tùy chỉnh màu sắc", impact: 12, triggerCount: 87 },
-  { priority: "P1" as const, title: "Bổ sung báo cáo chi tiết", description: "Thêm biểu đồ và export PDF cho báo cáo", impact: 9, triggerCount: 65 },
-  { priority: "P2" as const, title: "Hỗ trợ đa ngôn ngữ", description: "Thêm bản dịch tiếng Pháp, Đức, Nhật", impact: 7, triggerCount: 42 },
+  { priority: "P0" as const, title: "Simplify the onboarding setup flow", description: "Create a 3-step setup wizard instead of a long form", impact: 23, triggerCount: 187 },
+  { priority: "P0" as const, title: "Optimize page loading speed", description: "Apply lazy loading and cache API responses", impact: 18, triggerCount: 124 },
+  { priority: "P1" as const, title: "Add UI customization templates", description: "Allow users to select themes and customize colors", impact: 12, triggerCount: 87 },
+  { priority: "P1" as const, title: "Enhance reporting features", description: "Add charts and PDF export for reports", impact: 9, triggerCount: 65 },
+  { priority: "P2" as const, title: "Add multi-language support", description: "Add French, German, Japanese translations", impact: 7, triggerCount: 42 },
 ];
 
 export const reviews = [

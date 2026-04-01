@@ -47,16 +47,22 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      {/* Header — matching letsmetrix.com */}
       <header className="border-b bg-card sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-1.5">
+          <a href="/" className="flex items-center gap-1">
             <span className="text-sm font-extrabold tracking-tight text-foreground">LETS</span>
             <span className="text-sm font-extrabold tracking-tight text-primary">METRIX</span>
           </a>
-          <div className="hidden sm:flex items-center gap-3 text-xs">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Login</a>
-            <a href="#" className="bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-medium hover:opacity-90 transition-opacity">
+          <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+            <a href="#" className="hover:text-foreground transition-colors">For Merchants</a>
+            <a href="#" className="hover:text-foreground transition-colors">For Developers</a>
+            <a href="#" className="hover:text-foreground transition-colors">Compare</a>
+            <a href="#" className="hover:text-foreground transition-colors">App Insights</a>
+          </nav>
+          <div className="flex items-center gap-3 text-sm">
+            <a href="#" className="hidden sm:inline text-muted-foreground hover:text-foreground transition-colors">Login</a>
+            <a href="#" className="bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-medium hover:opacity-90 transition-opacity text-sm">
               Get Started
             </a>
           </div>
@@ -77,7 +83,7 @@ export default function LandingPage() {
             <span className="text-primary">for Shopify Apps</span>
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-10">
-            Phân tích toàn bộ review bằng AI. Hiểu điểm mạnh, điểm yếu, feature request và xu hướng cảm xúc — không cần đọc từng review.
+            Analyze all reviews with AI. Understand strengths, weaknesses, feature requests and sentiment trends — without reading every single review.
           </p>
 
           {/* Search Bar */}
@@ -90,7 +96,7 @@ export default function LandingPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                placeholder="Nhập tên Shopify App..."
+                placeholder="Enter a Shopify App name..."
                 className="w-full pl-12 pr-36 py-4 text-base bg-card rounded-xl border-2 border-border outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-foreground placeholder:text-muted-foreground shadow-lg transition-all"
               />
               <button
@@ -132,7 +138,7 @@ export default function LandingPage() {
               <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-lmx-warning/30 rounded-xl shadow-xl z-20 p-5 animate-fade-in-up">
                 <div className="text-center space-y-3">
                   <p className="text-sm font-medium text-foreground">❌ App not found</p>
-                  <p className="text-xs text-muted-foreground">Chúng tôi chưa có dữ liệu cho app này. Bạn có thể:</p>
+                  <p className="text-xs text-muted-foreground">We don't have data for this app yet. You can:</p>
                   <div className="flex flex-col sm:flex-row gap-2 justify-center">
                     <a href={`https://apps.shopify.com/search?q=${encodeURIComponent(query)}`} target="_blank" rel="noopener noreferrer"
                       className="text-xs font-medium text-primary bg-primary/10 px-4 py-2 rounded-lg hover:bg-primary/20 transition-colors">
@@ -155,13 +161,13 @@ export default function LandingPage() {
       {/* Core Features */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Core Features</h2>
-        <p className="text-sm text-muted-foreground text-center mb-10">Tất cả insights bạn cần, powered by AI</p>
+        <p className="text-sm text-muted-foreground text-center mb-10">All the insights you need, powered by AI</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { icon: Brain, title: "AI Summary", desc: "Tóm tắt 3-5 câu tổng quan về review, nhanh chóng nắm bắt tình hình" },
-            { icon: BarChart3, title: "Strengths & Weaknesses", desc: "Top điểm mạnh / yếu với mention count, sample quotes và trend" },
-            { icon: MessageSquare, title: "Feature Requests", desc: "Danh sách tính năng user muốn nhiều nhất, sắp xếp theo tần suất" },
-            { icon: TrendingUp, title: "Sentiment Trend", desc: "Biểu đồ xu hướng Positive/Neutral/Negative theo thời gian" },
+            { icon: Brain, title: "AI Summary", desc: "Get a 3-5 sentence overview of all reviews — quickly grasp the big picture" },
+            { icon: BarChart3, title: "Strengths & Weaknesses", desc: "Top strengths and weaknesses with mention counts, sample quotes and trends" },
+            { icon: MessageSquare, title: "Feature Requests", desc: "User-requested features ranked by frequency and signal strength" },
+            { icon: TrendingUp, title: "Sentiment Trend", desc: "Track Positive/Neutral/Negative sentiment trends over time" },
           ].map((f, i) => (
             <div key={i} className="bg-card rounded-xl border p-6 hover:shadow-md hover:border-primary/20 transition-all group">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -178,12 +184,12 @@ export default function LandingPage() {
       <section className="bg-secondary/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Why Use It</h2>
-          <p className="text-sm text-muted-foreground text-center mb-10">Tiết kiệm thời gian, ra quyết định dựa trên data</p>
+          <p className="text-sm text-muted-foreground text-center mb-10">Save time and make data-driven decisions</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: Clock, title: "Save time reading reviews", desc: "AI đọc hàng nghìn review trong vài giây, bạn chỉ cần đọc tóm tắt" },
-              { icon: Target, title: "Know what to build next", desc: "Feature requests xếp hạng theo tần suất, giúp bạn ưu tiên roadmap" },
-              { icon: Users, title: "Benchmark competitors", desc: "Phân tích review app đối thủ để hiểu điểm yếu và cơ hội cạnh tranh" },
+              { icon: Clock, title: "Save time reading reviews", desc: "AI reads thousands of reviews in seconds — you just read the summary" },
+              { icon: Target, title: "Know what to build next", desc: "Feature requests ranked by frequency help you prioritize your roadmap" },
+              { icon: Users, title: "Benchmark competitors", desc: "Analyze competitor app reviews to find weaknesses and opportunities" },
             ].map((f, i) => (
               <div key={i} className="flex items-start gap-4 bg-card rounded-xl border p-5">
                 <div className="w-10 h-10 rounded-full bg-lmx-success/10 flex items-center justify-center flex-shrink-0">
@@ -202,15 +208,14 @@ export default function LandingPage() {
       {/* How to Use */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
         <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">How to Use</h2>
-        <p className="text-sm text-muted-foreground text-center mb-10">Chỉ 3 bước đơn giản</p>
+        <p className="text-sm text-muted-foreground text-center mb-10">Just 3 simple steps</p>
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 justify-center">
           {[
-            { step: "1", title: "Search app name", desc: "Nhập tên Shopify app bạn muốn phân tích" },
-            { step: "2", title: "AI analyzes reviews", desc: "AI xử lý toàn bộ review trong vài giây" },
-            { step: "3", title: "Get insights & act", desc: "Xem báo cáo và hành động dựa trên data" },
+            { step: "1", title: "Search app name", desc: "Enter the Shopify app you want to analyze" },
+            { step: "2", title: "AI analyzes reviews", desc: "AI processes all reviews in seconds" },
+            { step: "3", title: "Get insights & act", desc: "View the report and make data-driven decisions" },
           ].map((s, i) => (
             <div key={i} className="flex items-center gap-4 sm:flex-col sm:text-center">
-              {i > 0 && <ArrowRight className="hidden sm:block w-5 h-5 text-muted-foreground absolute" style={{ display: 'none' }} />}
               <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold flex-shrink-0">
                 {s.step}
               </div>
@@ -232,9 +237,9 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: Search, title: "Keyword Tracking", desc: "Theo dõi ranking app trên Shopify App Store" },
-              { icon: BarChart3, title: "GA4 Integration", desc: "Kết nối Google Analytics để tracking toàn diện" },
-              { icon: Zap, title: "Competitor Analysis", desc: "So sánh hiệu suất app với đối thủ cạnh tranh" },
+              { icon: Search, title: "Keyword Tracking", desc: "Track your app ranking on the Shopify App Store" },
+              { icon: BarChart3, title: "GA4 Integration", desc: "Connect Google Analytics for comprehensive tracking" },
+              { icon: Zap, title: "Competitor Analysis", desc: "Compare app performance against competitors" },
             ].map((f, i) => (
               <div key={i} className="bg-background/5 border border-background/10 rounded-xl p-5 hover:bg-background/10 transition-colors">
                 <f.icon className="w-5 h-5 text-primary mb-3" />

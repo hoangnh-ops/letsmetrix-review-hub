@@ -10,7 +10,7 @@ import ReviewStatsTab from "@/components/review-tool/ReviewStatsTab";
 import CrossSellStrip from "@/components/review-tool/CrossSellStrip";
 import SearchBar from "@/components/review-tool/SearchBar";
 import { appInfo } from "@/data/mockData";
-import { Brain, Loader2 } from "lucide-react";
+import { Brain } from "lucide-react";
 
 function AnalyzingOverlay({ reviewCount }: { reviewCount: number }) {
   const [progress, setProgress] = useState(0);
@@ -64,17 +64,21 @@ export default function ResultPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Top bar */}
+      {/* Top bar — matching letsmetrix.com */}
       <header className="border-b bg-card sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4">
-          <a href="/" className="flex items-center gap-1.5 flex-shrink-0">
+          <a href="/" className="flex items-center gap-1 flex-shrink-0">
             <span className="text-sm font-extrabold tracking-tight text-foreground">LETS</span>
             <span className="text-sm font-extrabold tracking-tight text-primary">METRIX</span>
           </a>
           <div className="flex-1 max-w-lg">
             <SearchBar />
           </div>
-          <div className="hidden sm:flex items-center gap-3 text-xs">
+          <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+            <a href="#" className="hover:text-foreground transition-colors">For Merchants</a>
+            <a href="#" className="hover:text-foreground transition-colors">For Developers</a>
+          </div>
+          <div className="hidden sm:flex items-center gap-3 text-sm">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Login</a>
             <a href="#" className="bg-primary text-primary-foreground px-4 py-1.5 rounded-full font-medium hover:opacity-90 transition-opacity">
               Get Started
@@ -116,8 +120,8 @@ export default function ResultPage() {
                     Reviews
                   </TabsTrigger>
                   <TabsTrigger value="stats" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                    Thống kê trạng thái
-                    <span className="ml-1 text-[9px] font-bold bg-primary text-primary-foreground px-1 py-0.5 rounded">MỚI</span>
+                    Review Stats
+                    <span className="ml-1 text-[9px] font-bold bg-primary text-primary-foreground px-1 py-0.5 rounded">NEW</span>
                   </TabsTrigger>
                 </TabsList>
                 <div className="mt-4">
