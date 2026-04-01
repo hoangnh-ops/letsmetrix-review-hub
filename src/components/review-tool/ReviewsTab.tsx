@@ -2,11 +2,11 @@ import { Star, Lock, Filter } from "lucide-react";
 import { reviews } from "@/data/mockData";
 
 const tagConfig: Record<string, { label: string; class: string }> = {
-  support_praise: { label: "Hỗ trợ", class: "tag-support" },
+  support_praise: { label: "Support", class: "tag-support" },
   bug_report: { label: "Bug", class: "tag-bug" },
   ux_issue: { label: "UX", class: "tag-ux" },
-  feature_request: { label: "Tính năng", class: "tag-feature" },
-  pricing_concern: { label: "Giá", class: "tag-pricing" },
+  feature_request: { label: "Feature", class: "tag-feature" },
+  pricing_concern: { label: "Pricing", class: "tag-pricing" },
 };
 
 const Stars = ({ rating }: { rating: number }) => (
@@ -63,9 +63,9 @@ export default function ReviewsTab() {
       {/* Locked remaining */}
       <div className="bg-secondary/50 rounded-lg border border-dashed border-primary/30 p-6 flex flex-col items-center justify-center gap-2">
         <Lock className="w-5 h-5 text-primary" />
-        <p className="text-sm font-medium text-foreground">{remaining} review nữa</p>
+        <p className="text-sm font-medium text-foreground">{remaining} more reviews</p>
         <button className="text-xs font-medium text-primary-foreground bg-primary px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">
-          Đăng ký để xem tất cả →
+          Sign up to view all →
         </button>
       </div>
     </div>

@@ -42,12 +42,12 @@ export default function AppInfoSidebar() {
 
       {/* A2: Sentiment Scores */}
       <div className="bg-card rounded-lg border p-5 space-y-3 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-        <h3 className="font-semibold text-sm text-foreground">Điểm cảm xúc</h3>
+        <h3 className="font-semibold text-sm text-foreground">Sentiment Scores</h3>
         <div className="space-y-3">
           {sentimentScores.map((s, i) => {
             const isGated = i >= 3;
             return (
-              <div key={s.label} className={`relative ${isGated ? "" : ""}`}>
+              <div key={s.label} className="relative">
                 <div className={isGated ? "gated-blur" : ""}>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs text-muted-foreground">{s.label}</span>
@@ -66,7 +66,7 @@ export default function AppInfoSidebar() {
                 {isGated && i === 3 && (
                   <div className="absolute inset-0 flex items-center justify-center z-10">
                     <button className="flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors">
-                      <Lock className="w-3 h-3" /> Mở khóa tất cả điểm →
+                      <Lock className="w-3 h-3" /> Unlock all scores →
                     </button>
                   </div>
                 )}
@@ -100,7 +100,7 @@ export default function AppInfoSidebar() {
             <Bell className="w-3 h-3" /> Get notified
           </button>
           <a href="#" className="flex items-center justify-center gap-1 text-xs text-primary hover:underline">
-            Track on letsmetrix <ExternalLink className="w-3 h-3" />
+            Track on Letsmetrix <ExternalLink className="w-3 h-3" />
           </a>
         </div>
       )}

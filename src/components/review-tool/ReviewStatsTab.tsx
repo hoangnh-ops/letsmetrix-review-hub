@@ -7,7 +7,7 @@ const StatCard = ({ label, value, delta, color }: { label: string; value: number
     <p className="text-xl font-bold text-foreground">{value.toLocaleString()}</p>
     {delta !== undefined && (
       <p className={`text-xs font-medium ${color}`}>
-        {delta > 0 ? "+" : ""}{delta} tuần này
+        {delta > 0 ? "+" : ""}{delta} this week
       </p>
     )}
   </div>
@@ -28,7 +28,7 @@ export default function ReviewStatsTab() {
     <div className="space-y-5">
       {/* Stat cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <StatCard label="Tổng reviews" value={d.total} color="" />
+        <StatCard label="Total Reviews" value={d.total} color="" />
         <StatCard label="Active" value={d.active} delta={d.activeDelta} color="text-lmx-success" />
         <StatCard label="Archived" value={d.archived} delta={d.archivedDelta} color="text-lmx-warning" />
         <StatCard label="Deleted" value={d.deleted} delta={d.deletedDelta} color="text-lmx-danger" />
@@ -36,7 +36,7 @@ export default function ReviewStatsTab() {
 
       {/* Distribution bars */}
       <div className="bg-card rounded-lg border p-4 space-y-3">
-        <h4 className="text-sm font-semibold text-foreground">Phân bổ trạng thái</h4>
+        <h4 className="text-sm font-semibold text-foreground">Status Distribution</h4>
         {[
           { label: "Active", value: d.active, pct: activePct, cls: "bg-lmx-success" },
           { label: "Archived", value: d.archived, pct: archivedPct, cls: "bg-lmx-warning" },
@@ -55,14 +55,14 @@ export default function ReviewStatsTab() {
         {archivedHigh && (
           <div className="flex items-center gap-2 bg-lmx-warning-bg rounded-md p-2 text-xs text-lmx-warning">
             <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0" />
-            Tỉ lệ archive cao — dữ liệu phân tích có thể bị lệch
+            High archive rate — analysis data may be skewed
           </div>
         )}
       </div>
 
       {/* 8-week trend chart */}
       <div className="bg-card rounded-lg border p-4 space-y-3">
-        <h4 className="text-sm font-semibold text-foreground">Xu hướng 8 tuần</h4>
+        <h4 className="text-sm font-semibold text-foreground">8-Week Trend</h4>
         <div className="flex items-end gap-2 h-32">
           {d.weeklyTrend.map((w) => {
             const isDeletedSpike = w.deleted > avgDeleted * 2;
@@ -90,7 +90,7 @@ export default function ReviewStatsTab() {
 
       {/* Transition table */}
       <div className="bg-card rounded-lg border p-4 space-y-3">
-        <h4 className="text-sm font-semibold text-foreground">Chuyển đổi trạng thái</h4>
+        <h4 className="text-sm font-semibold text-foreground">Status Transitions</h4>
         <div className="space-y-2">
           {d.transitions.map((t, i) => (
             <div key={i} className="flex items-center justify-between text-xs py-1.5 border-b last:border-0">
@@ -103,16 +103,16 @@ export default function ReviewStatsTab() {
 
       {/* Rating x Status matrix */}
       <div className="bg-card rounded-lg border p-4 space-y-3">
-        <h4 className="text-sm font-semibold text-foreground">Rating × Trạng thái</h4>
+        <h4 className="text-sm font-semibold text-foreground">Rating × Status</h4>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-2 text-muted-foreground font-medium">Trạng thái</th>
+                <th className="text-left py-2 text-muted-foreground font-medium">Status</th>
                 {[1, 2, 3, 4, 5].map((s) => (
                   <th key={s} className="text-right py-2 text-muted-foreground font-medium">{s}★</th>
                 ))}
-                <th className="text-right py-2 text-muted-foreground font-medium">Tổng</th>
+                <th className="text-right py-2 text-muted-foreground font-medium">Total</th>
               </tr>
             </thead>
             <tbody>
@@ -140,7 +140,7 @@ export default function ReviewStatsTab() {
         {/* Insight */}
         <div className="flex items-start gap-2 bg-lmx-danger-bg rounded-md p-3 text-xs text-lmx-danger">
           <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
-          <p>Đáng chú ý: tỉ lệ 1-sao bị xóa (12.3%) cao hơn đáng kể so với tỉ lệ 1-sao active (1.0%). Có thể cho thấy xu hướng xóa review tiêu cực.</p>
+          <p>Notable: the deleted 1-star rate (12.3%) is significantly higher than the active 1-star rate (1.0%). This may indicate a pattern of removing negative reviews.</p>
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@ export default function ActionItemsTab() {
               <h4 className="text-sm font-semibold text-foreground">{item.title}</h4>
               <p className="text-xs text-muted-foreground">{item.description}</p>
               <div className="flex items-center gap-1 text-xs text-lmx-success font-medium">
-                <TrendingUp className="w-3 h-3" /> Ước tính: ~{item.impact}%
+                <TrendingUp className="w-3 h-3" /> Estimated impact: ~{item.impact}%
               </div>
             </div>
           </div>
@@ -33,9 +33,9 @@ export default function ActionItemsTab() {
       {/* Locked */}
       <div className="bg-secondary/50 rounded-lg border border-dashed border-primary/30 p-6 flex flex-col items-center justify-center gap-2">
         <Lock className="w-5 h-5 text-primary" />
-        <p className="text-sm font-medium text-foreground">{otherItems.length} hành động nữa</p>
+        <p className="text-sm font-medium text-foreground">{otherItems.length} more action items</p>
         <button className="text-xs font-medium text-primary-foreground bg-primary px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">
-          Đăng ký để mở khóa →
+          Sign up to unlock →
         </button>
       </div>
     </div>

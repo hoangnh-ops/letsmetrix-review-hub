@@ -23,7 +23,7 @@ export default function FeatureRequestsTab() {
               <h4 className="text-sm font-semibold text-foreground">{fr.title}</h4>
               <SignalBadge level={fr.signal} />
             </div>
-            <span className="text-xs font-medium text-primary whitespace-nowrap">{fr.count} yêu cầu</span>
+            <span className="text-xs font-medium text-primary whitespace-nowrap">{fr.count} requests</span>
           </div>
           <p className="text-xs text-muted-foreground">{fr.description}</p>
           <p className="text-xs text-muted-foreground italic border-l-2 border-primary/30 pl-2">{fr.quote}</p>
@@ -32,9 +32,9 @@ export default function FeatureRequestsTab() {
       {/* Locked card */}
       <div className="bg-secondary/50 rounded-lg border border-dashed border-primary/30 p-6 flex flex-col items-center justify-center gap-2">
         <Lock className="w-5 h-5 text-primary" />
-        <p className="text-sm font-medium text-foreground">{hiddenCount} yêu cầu nữa</p>
+        <p className="text-sm font-medium text-foreground">{hiddenCount} more requests</p>
         <button className="text-xs font-medium text-primary-foreground bg-primary px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">
-          Đăng ký để xem tất cả →
+          Sign up to view all →
         </button>
       </div>
     </div>
