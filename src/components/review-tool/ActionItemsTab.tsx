@@ -1,4 +1,4 @@
-import { Lock, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { actionItems } from "@/data/mockData";
 
 const PriorityBadge = ({ priority }: { priority: "P0" | "P1" | "P2" }) => {
@@ -11,12 +11,9 @@ const PriorityBadge = ({ priority }: { priority: "P0" | "P1" | "P2" }) => {
 };
 
 export default function ActionItemsTab() {
-  const p0Items = actionItems.filter((a) => a.priority === "P0");
-  const otherItems = actionItems.filter((a) => a.priority !== "P0");
-
   return (
     <div className="space-y-3">
-      {p0Items.map((item, i) => (
+      {actionItems.map((item, i) => (
         <div key={i} className="bg-card rounded-lg border p-4">
           <div className="flex items-start gap-3">
             <PriorityBadge priority={item.priority} />
@@ -30,14 +27,6 @@ export default function ActionItemsTab() {
           </div>
         </div>
       ))}
-      {/* Locked */}
-      <div className="bg-secondary/50 rounded-lg border border-dashed border-primary/30 p-6 flex flex-col items-center justify-center gap-2">
-        <Lock className="w-5 h-5 text-primary" />
-        <p className="text-sm font-medium text-foreground">{otherItems.length} more action items</p>
-        <button className="text-xs font-medium text-primary-foreground bg-primary px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">
-          Sign up to unlock →
-        </button>
-      </div>
     </div>
   );
 }
