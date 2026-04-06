@@ -6,7 +6,7 @@ import AISummary from "@/components/review-tool/AISummary";
 import StrengthsWeaknesses from "@/components/review-tool/StrengthsWeaknesses";
 import FeatureRequestsTab from "@/components/review-tool/FeatureRequestsTab";
 import ActionItemsTab from "@/components/review-tool/ActionItemsTab";
-import ReviewsTab from "@/components/review-tool/ReviewsTab";
+import ReviewListSection from "@/components/review-tool/ReviewListSection";
 import ReviewStatsTab from "@/components/review-tool/ReviewStatsTab";
 import SentimentTrendChart from "@/components/review-tool/SentimentTrendChart";
 import GetNotifiedSection from "@/components/review-tool/GetNotifiedSection";
