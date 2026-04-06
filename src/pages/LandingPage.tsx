@@ -309,6 +309,9 @@ export default function LandingPage() {
             <BarChart3 className="w-3.5 h-3.5" /> Live Dashboard
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">See Insights in Seconds</h2>
+          <p className="text-sm text-muted-foreground mb-10 max-w-lg mx-auto">
+            AI breaks down reviews into actionable data
+          </p>
           <div className="rounded-xl border border-border shadow-lg overflow-hidden">
             <img
               src={dashboardPreview}
