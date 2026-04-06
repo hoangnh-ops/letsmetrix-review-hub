@@ -344,55 +344,8 @@ export default function LandingPage() {
           })}
         </div>
       </section>
-          <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-            Save time and make data-driven decisions with AI-powered review analysis
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {BENEFITS.map((b, i) => (
-              <div key={i} className="flex items-start gap-4 bg-card rounded-xl border p-6 hover:shadow-sm transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <b.icon className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">{b.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ===== METRICS EXPLAINED ===== */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20" id="metrics">
-        <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Understanding the Metrics</h2>
-        <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-          Learn what each metric means and how it's calculated
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {METRICS_EXPLAINED.map((m, i) => (
-            <div key={i} className="bg-card rounded-xl border p-6 flex gap-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <m.icon className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-semibold text-foreground">{m.title}</h3>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Info className="w-3.5 h-3.5 text-muted-foreground hover:text-foreground transition-colors" />
-                    </TooltipTrigger>
-                    <TooltipContent className="max-w-xs text-xs">
-                      {m.desc}
-                    </TooltipContent>
-                  </Tooltip>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* ===== FAQ ===== */}
       <section className="bg-secondary/50" id="faq">
