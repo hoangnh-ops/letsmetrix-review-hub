@@ -276,66 +276,22 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ===== BENEFITS ===== */}
-      <section className="bg-secondary/50">
+      {/* ===== WHY CHOOSE ===== */}
+      <section className="bg-secondary/50" id="features">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
-              <Lightbulb className="w-3.5 h-3.5" /> Benefits
+              <Star className="w-3.5 h-3.5" /> Why Choose Us
             </span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Benefits for App Developers & Merchants</h2>
-          <p className="text-sm text-muted-foreground text-center mb-14 max-w-lg mx-auto">
-            Save time and make data-driven decisions with AI-powered review analysis
-          </p>
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
-            <div className="w-full lg:w-5/12 flex-shrink-0">
-              <img
-                src={benefitsImg}
-                alt="AI Review Insights dashboard showing analytics and charts"
-                className="rounded-xl shadow-lg border border-border w-full"
-                loading="lazy"
-                width={800}
-                height={600}
-              />
-            </div>
-            <div className="w-full lg:w-7/12 space-y-6">
-              {BENEFITS.map((b, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <b.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">{b.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-                  </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-10">Why Choose LetsMetrix</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {WHY_CHOOSE.map((item, i) => (
+              <div key={i} className="bg-card rounded-xl border p-5 flex items-center gap-3 hover:shadow-md hover:border-primary/20 transition-all group">
+                <div className={`w-10 h-10 rounded-lg ${item.bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                  <item.icon className={`w-5 h-5 ${item.color}`} />
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== MAIN FEATURES ===== */}
-      <section className="bg-background" id="features">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
-          <div className="flex justify-center mb-4">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
-              <Star className="w-3.5 h-3.5" /> Core Features
-            </span>
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Why Use AI Review Insights Tool</h2>
-          <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-            All the insights you need from Shopify app reviews, powered by AI
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {FEATURES.map((f, i) => (
-              <div key={i} className="bg-card rounded-xl border p-6 hover:shadow-md hover:border-primary/20 transition-all group">
-                <div className={`w-11 h-11 rounded-lg ${f.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <f.icon className={`w-5 h-5 ${f.color}`} />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                <span className="font-semibold text-sm text-foreground">{item.title}</span>
               </div>
             ))}
           </div>
