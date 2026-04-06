@@ -279,20 +279,23 @@ export default function LandingPage() {
 
       {/* ===== BENEFITS ===== */}
       <section className="bg-secondary/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Benefits for App Developers & Merchants</h2>
-          <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
+          <p className="text-sm text-muted-foreground text-center mb-14 max-w-lg mx-auto">
             Save time and make data-driven decisions with AI-powered review analysis
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="space-y-10">
             {BENEFITS.map((b, i) => (
-              <div key={i} className="flex items-start gap-4 bg-card rounded-xl border p-6 hover:shadow-sm transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <b.icon className="w-5 h-5 text-primary" />
+              <div key={i} className={`flex flex-col sm:flex-row items-center gap-6 ${i % 2 !== 0 ? 'sm:flex-row-reverse' : ''}`}>
+                <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 relative">
+                  <b.icon className="w-9 h-9 text-primary" />
+                  <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-md">
+                    {i + 1}
+                  </span>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">{b.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                <div className={`flex-1 ${i % 2 !== 0 ? 'sm:text-right' : ''}`}>
+                  <h3 className="font-semibold text-foreground text-lg mb-1">{b.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -307,29 +310,42 @@ export default function LandingPage() {
           Learn what each metric means and how it's calculated
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {METRICS_EXPLAINED.map((m, i) => (
-            <div key={i} className="bg-card rounded-xl border p-6 flex gap-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <m.icon className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-semibold text-foreground">{m.title}</h3>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Info className="w-3.5 h-3.5 text-muted-foreground hover:text-foreground transition-colors" />
-                    </TooltipTrigger>
-                    <TooltipContent className="max-w-xs text-xs">
-                      {m.desc}
-                    </TooltipContent>
-                  </Tooltip>
+          {METRICS_EXPLAINED.map((m, i) => {
+            const colors = [
+              { border: "border-l-primary", bg: "bg-primary/10", text: "text-primary" },
+              { border: "border-l-lmx-info", bg: "bg-lmx-info/10", text: "text-lmx-info" },
+              { border: "border-l-lmx-success", bg: "bg-lmx-success/10", text: "text-lmx-success" },
+              { border: "border-l-lmx-purple", bg: "bg-lmx-purple/10", text: "text-lmx-purple" },
+            ];
+            const c = colors[i % colors.length];
+            return (
+              <div key={i} className={`bg-card rounded-xl border border-l-4 ${c.border} p-5 hover:shadow-md transition-shadow`}>
+                <div className="flex items-start gap-4">
+                  <div className={`w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center flex-shrink-0`}>
+                    <m.icon className={`w-5 h-5 ${c.text}`} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-semibold text-foreground">{m.title}</h3>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <Info className="w-3.5 h-3.5 text-muted-foreground hover:text-foreground transition-colors" />
+                        </TooltipTrigger>
+                        <TooltipContent className="max-w-xs text-xs">
+                          {m.desc}
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
+
+
 
       {/* ===== FAQ ===== */}
       <section className="bg-secondary/50" id="faq">
