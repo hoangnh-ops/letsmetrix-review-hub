@@ -16,12 +16,12 @@ const SAMPLE_APPS = [
 ];
 
 const WHY_CHOOSE = [
-  { icon: Clock, title: "Save Time", color: "text-primary", bg: "bg-primary/10" },
-  { icon: Target, title: "Build Roadmap", color: "text-lmx-success", bg: "bg-lmx-success/10" },
-  { icon: Users, title: "Track Competitors", color: "text-lmx-info", bg: "bg-lmx-info/10" },
-  { icon: Lightbulb, title: "Improve UX", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
-  { icon: TrendingUp, title: "Detect Trends", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
-  { icon: Brain, title: "AI Summary", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
+  { icon: Clock, title: "Save Time", desc: "AI analyzes thousands of reviews in seconds", color: "text-primary", bg: "bg-primary/10" },
+  { icon: Target, title: "Build Roadmap", desc: "Prioritize features based on real user demand", color: "text-lmx-success", bg: "bg-lmx-success/10" },
+  { icon: Users, title: "Track Competitors", desc: "Discover competitor weaknesses and opportunities", color: "text-lmx-info", bg: "bg-lmx-info/10" },
+  { icon: Lightbulb, title: "Improve UX", desc: "Fix recurring pain points before bad reviews", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
+  { icon: TrendingUp, title: "Detect Trends", desc: "Monitor sentiment shifts over time", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
+  { icon: Brain, title: "AI Summary", desc: "Get a concise overview without reading every review", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
 ];
 
 const STEPS = [
@@ -287,11 +287,14 @@ export default function LandingPage() {
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-10">Why Choose LetsMetrix</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {WHY_CHOOSE.map((item, i) => (
-              <div key={i} className="bg-card rounded-xl border p-5 flex items-center gap-3 hover:shadow-md hover:border-primary/20 transition-all group">
-                <div className={`w-10 h-10 rounded-lg ${item.bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                  <item.icon className={`w-5 h-5 ${item.color}`} />
+              <div key={i} className="bg-card rounded-xl border p-5 hover:shadow-md hover:border-primary/20 transition-all group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`w-10 h-10 rounded-lg ${item.bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    <item.icon className={`w-5 h-5 ${item.color}`} />
+                  </div>
+                  <span className="font-semibold text-sm text-foreground">{item.title}</span>
                 </div>
-                <span className="font-semibold text-sm text-foreground">{item.title}</span>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
