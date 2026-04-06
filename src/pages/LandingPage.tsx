@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import benefitsImg from "@/assets/benefits-illustration.png";
+
 import { useNavigate } from "react-router-dom";
 import {
   Search, ArrowRight, Brain, BarChart3, MessageSquare, TrendingUp,
@@ -15,13 +15,13 @@ const SAMPLE_APPS = [
   { name: "PageFly", icon: "https://cdn.shopify.com/app-store/listing_images/default-app-icon.png", rating: 4.8, reviews: 3102 },
 ];
 
-const FEATURES = [
-  { icon: Brain, title: "AI-Powered Summary", desc: "Get a concise 3–5 sentence overview of all reviews. Understand the big picture without reading thousands of reviews manually.", color: "text-primary", bg: "bg-primary/10" },
-  { icon: BarChart3, title: "Strengths & Weaknesses", desc: "Top strengths and weaknesses clustered by theme, with mention counts, sample quotes and trend direction indicators.", color: "text-lmx-success", bg: "bg-lmx-success/10" },
-  { icon: MessageSquare, title: "Feature Requests", desc: "User-requested features ranked by frequency and signal strength. Know what your users want most.", color: "text-lmx-info", bg: "bg-lmx-info/10" },
-  { icon: TrendingUp, title: "Sentiment Trend", desc: "Track Positive / Neutral / Negative sentiment trends over time with interactive charts.", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
-  { icon: Shield, title: "Action Items", desc: "AI-generated prioritized action items based on review analysis — so you know exactly what to fix first.", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
-  { icon: LineChart, title: "Review Statistics", desc: "Detailed review stats including rating distribution, review velocity, and response rate metrics.", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
+const WHY_CHOOSE = [
+  { icon: Clock, title: "Save Time", color: "text-primary", bg: "bg-primary/10" },
+  { icon: Target, title: "Build Roadmap", color: "text-lmx-success", bg: "bg-lmx-success/10" },
+  { icon: Users, title: "Track Competitors", color: "text-lmx-info", bg: "bg-lmx-info/10" },
+  { icon: Lightbulb, title: "Improve UX", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
+  { icon: TrendingUp, title: "Detect Trends", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
+  { icon: Brain, title: "AI Summary", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
 ];
 
 const STEPS = [
@@ -30,12 +30,6 @@ const STEPS = [
   { step: "3", title: "Get actionable insights", desc: "View the full report: strengths, weaknesses, feature requests, trends, and prioritized action items." },
 ];
 
-const BENEFITS = [
-  { icon: Clock, title: "Save Hours of Manual Work", desc: "AI reads and categorizes thousands of reviews in seconds — no more manual spreadsheet work." },
-  { icon: Target, title: "Data-Driven Roadmap", desc: "Feature requests ranked by frequency help you prioritize what to build next based on real user demand." },
-  { icon: Users, title: "Competitive Intelligence", desc: "Analyze competitor app reviews to discover their weaknesses and find market opportunities." },
-  { icon: Lightbulb, title: "Improve User Satisfaction", desc: "Identify recurring pain points and fix them before they turn into negative reviews." },
-];
 
 const FAQS = [
   { q: "What is AI Review Insights and how does it work?", a: "AI Review Insights is a free tool by Letsmetrix that uses artificial intelligence to analyze all reviews of any Shopify app. It automatically extracts strengths, weaknesses, feature requests, and sentiment trends — giving you a complete picture without reading every review." },
@@ -282,66 +276,22 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ===== BENEFITS ===== */}
-      <section className="bg-secondary/50">
+      {/* ===== WHY CHOOSE ===== */}
+      <section className="bg-secondary/50" id="features">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
-              <Lightbulb className="w-3.5 h-3.5" /> Benefits
+              <Star className="w-3.5 h-3.5" /> Why Choose Us
             </span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Benefits for App Developers & Merchants</h2>
-          <p className="text-sm text-muted-foreground text-center mb-14 max-w-lg mx-auto">
-            Save time and make data-driven decisions with AI-powered review analysis
-          </p>
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
-            <div className="w-full lg:w-5/12 flex-shrink-0">
-              <img
-                src={benefitsImg}
-                alt="AI Review Insights dashboard showing analytics and charts"
-                className="rounded-xl shadow-lg border border-border w-full"
-                loading="lazy"
-                width={800}
-                height={600}
-              />
-            </div>
-            <div className="w-full lg:w-7/12 space-y-6">
-              {BENEFITS.map((b, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <b.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">{b.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-                  </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-10">Why Choose LetsMetrix</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {WHY_CHOOSE.map((item, i) => (
+              <div key={i} className="bg-card rounded-xl border p-5 flex items-center gap-3 hover:shadow-md hover:border-primary/20 transition-all group">
+                <div className={`w-10 h-10 rounded-lg ${item.bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                  <item.icon className={`w-5 h-5 ${item.color}`} />
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== MAIN FEATURES ===== */}
-      <section className="bg-background" id="features">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
-          <div className="flex justify-center mb-4">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
-              <Star className="w-3.5 h-3.5" /> Core Features
-            </span>
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Why Use AI Review Insights Tool</h2>
-          <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-            All the insights you need from Shopify app reviews, powered by AI
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {FEATURES.map((f, i) => (
-              <div key={i} className="bg-card rounded-xl border p-6 hover:shadow-md hover:border-primary/20 transition-all group">
-                <div className={`w-11 h-11 rounded-lg ${f.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <f.icon className={`w-5 h-5 ${f.color}`} />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                <span className="font-semibold text-sm text-foreground">{item.title}</span>
               </div>
             ))}
           </div>
