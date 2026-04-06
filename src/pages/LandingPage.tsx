@@ -112,7 +112,7 @@ export default function LandingPage() {
       </header>
 
       {/* ===== HERO SECTION ===== */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(30,100%,98%)] to-background">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(30,100%,96%)] via-[hsl(30,80%,97%)] to-[hsl(30,60%,98%)]">
         {/* Minimal decorative accents */}
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
@@ -248,7 +248,7 @@ export default function LandingPage() {
       </section>
 
       {/* ===== HOW TO USE ===== */}
-      <section className="bg-background" id="how-to-use">
+      <section className="bg-white border-b border-border" id="how-to-use">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
@@ -278,7 +278,7 @@ export default function LandingPage() {
       </section>
 
       {/* ===== DASHBOARD PREVIEW ===== */}
-      <section className="bg-secondary/50">
+      <section className="bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
           <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20 mb-4">
             <BarChart3 className="w-3.5 h-3.5" /> Live Dashboard
@@ -299,7 +299,7 @@ export default function LandingPage() {
       </section>
 
       {/* ===== WHY CHOOSE ===== */}
-      <section className="bg-background" id="features">
+      <section className="bg-[hsl(210,40%,98%)]" id="features">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
@@ -324,7 +324,7 @@ export default function LandingPage() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <section className="bg-secondary/50" id="faq">
+      <section className="bg-[hsl(210,20%,97%)]" id="faq">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
