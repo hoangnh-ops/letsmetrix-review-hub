@@ -309,15 +309,6 @@ export default function LandingPage() {
             <BarChart3 className="w-3.5 h-3.5" /> Live Dashboard
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">See Insights in Seconds</h2>
-          <p className="text-sm text-muted-foreground mb-4 max-w-lg mx-auto">
-            AI breaks down reviews into actionable data
-          </p>
-          <button
-            onClick={() => { inputRef.current?.focus(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-medium text-sm hover:opacity-90 transition-opacity mb-10"
-          >
-            Try it now <ArrowRight className="w-4 h-4" />
-          </button>
           <div className="rounded-xl border border-border shadow-lg overflow-hidden">
             <img
               src={dashboardPreview}
