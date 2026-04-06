@@ -146,7 +146,7 @@ export default function LandingPage() {
                   onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   placeholder="Enter a Shopify App name..."
                   aria-label="Search for a Shopify app"
-                  className={`w-full pl-14 pr-4 py-5 text-lg bg-secondary/50 rounded-xl border-2 outline-none text-foreground placeholder:text-muted-foreground transition-all ${
+                  className={`w-full pl-14 pr-4 py-4 text-base bg-secondary/50 rounded-xl border-2 outline-none text-foreground placeholder:text-muted-foreground transition-all ${
                     validationError
                       ? "border-destructive focus:border-destructive focus:ring-4 focus:ring-destructive/10"
                       : "border-border focus:border-primary/50 focus:ring-4 focus:ring-primary/10"
@@ -157,7 +157,7 @@ export default function LandingPage() {
               {/* CTA Button — full width below input */}
               <button
                 onClick={handleSearch}
-                className="w-full mt-4 bg-primary text-primary-foreground py-4 rounded-xl font-semibold text-base hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-md"
+                className="w-full mt-4 bg-primary text-primary-foreground py-3 rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-md"
               >
                 <Search className="w-5 h-5" />
                 Analyze Reviews
