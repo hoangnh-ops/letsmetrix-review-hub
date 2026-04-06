@@ -228,6 +228,17 @@ export default function LandingPage() {
             <button onClick={() => setQuery("PageFly")} className="text-primary hover:underline font-medium">PageFly</button>,{" "}
             <button onClick={() => setQuery("Oberlo")} className="text-primary hover:underline font-medium">Oberlo</button>
           </p>
+
+          {/* Hero Banner */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <img
+              src={heroBanner}
+              alt="AI Review Insights dashboard showing review analysis charts and sentiment data for Shopify apps"
+              width={1280}
+              height={720}
+              className="w-full rounded-xl shadow-2xl border"
+            />
+          </div>
         </div>
       </section>
 
