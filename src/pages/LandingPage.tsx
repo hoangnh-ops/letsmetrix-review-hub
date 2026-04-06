@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import benefitsImg from "@/assets/benefits-illustration.jpg";
 import { useNavigate } from "react-router-dom";
 import {
   Search, ArrowRight, Brain, BarChart3, MessageSquare, TrendingUp,
@@ -278,27 +279,38 @@ export default function LandingPage() {
       </section>
 
       {/* ===== BENEFITS ===== */}
-      <section className="bg-secondary/50">
+       <section className="bg-secondary/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Benefits for App Developers & Merchants</h2>
           <p className="text-sm text-muted-foreground text-center mb-14 max-w-lg mx-auto">
             Save time and make data-driven decisions with AI-powered review analysis
           </p>
-          <div className="space-y-10">
-            {BENEFITS.map((b, i) => (
-              <div key={i} className={`flex flex-col sm:flex-row items-center gap-6 ${i % 2 !== 0 ? 'sm:flex-row-reverse' : ''}`}>
-                <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 relative">
-                  <b.icon className="w-9 h-9 text-primary" />
-                  <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-md">
-                    {i + 1}
-                  </span>
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+            {/* Left: Illustration */}
+            <div className="w-full lg:w-5/12 flex-shrink-0">
+              <img
+                src={benefitsImg}
+                alt="AI Review Insights dashboard showing analytics and charts"
+                className="rounded-xl shadow-lg border border-border w-full"
+                loading="lazy"
+                width={800}
+                height={600}
+              />
+            </div>
+            {/* Right: Benefits list */}
+            <div className="w-full lg:w-7/12 space-y-6">
+              {BENEFITS.map((b, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <b.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">{b.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                  </div>
                 </div>
-                <div className={`flex-1 ${i % 2 !== 0 ? 'sm:text-right' : ''}`}>
-                  <h3 className="font-semibold text-foreground text-lg mb-1">{b.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{b.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
