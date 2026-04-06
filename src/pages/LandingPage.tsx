@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import benefitsImg from "@/assets/benefits-illustration.jpg";
 import { useNavigate } from "react-router-dom";
 import {
   Search, ArrowRight, Brain, BarChart3, MessageSquare, TrendingUp,
