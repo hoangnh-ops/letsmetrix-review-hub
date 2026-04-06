@@ -125,16 +125,16 @@ export default function LandingPage() {
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, hsl(0 0% 100%) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-14 text-center relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-6">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium mb-6 border border-primary/30">
             <Brain className="w-3.5 h-3.5" />
             AI-Powered Review Analysis
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
             AI Review Insights
             <br />
             <span className="text-primary">for Shopify Apps</span>
           </h1>
-          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mb-10">
             Analyze all reviews with AI. Understand strengths, weaknesses, feature requests and sentiment trends — without reading every single review.
           </p>
 
