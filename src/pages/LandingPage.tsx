@@ -15,13 +15,13 @@ const SAMPLE_APPS = [
   { name: "PageFly", icon: "https://cdn.shopify.com/app-store/listing_images/default-app-icon.png", rating: 4.8, reviews: 3102 },
 ];
 
-const FEATURES = [
-  { icon: Brain, title: "AI-Powered Summary", desc: "Get a concise 3–5 sentence overview of all reviews. Understand the big picture without reading thousands of reviews manually.", color: "text-primary", bg: "bg-primary/10" },
-  { icon: BarChart3, title: "Strengths & Weaknesses", desc: "Top strengths and weaknesses clustered by theme, with mention counts, sample quotes and trend direction indicators.", color: "text-lmx-success", bg: "bg-lmx-success/10" },
-  { icon: MessageSquare, title: "Feature Requests", desc: "User-requested features ranked by frequency and signal strength. Know what your users want most.", color: "text-lmx-info", bg: "bg-lmx-info/10" },
-  { icon: TrendingUp, title: "Sentiment Trend", desc: "Track Positive / Neutral / Negative sentiment trends over time with interactive charts.", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
-  { icon: Shield, title: "Action Items", desc: "AI-generated prioritized action items based on review analysis — so you know exactly what to fix first.", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
-  { icon: LineChart, title: "Review Statistics", desc: "Detailed review stats including rating distribution, review velocity, and response rate metrics.", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
+const WHY_CHOOSE = [
+  { icon: Clock, title: "Save Time", color: "text-primary", bg: "bg-primary/10" },
+  { icon: Target, title: "Build Roadmap", color: "text-lmx-success", bg: "bg-lmx-success/10" },
+  { icon: Users, title: "Track Competitors", color: "text-lmx-info", bg: "bg-lmx-info/10" },
+  { icon: Lightbulb, title: "Improve UX", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
+  { icon: TrendingUp, title: "Detect Trends", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
+  { icon: Brain, title: "AI Summary", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
 ];
 
 const STEPS = [
@@ -30,12 +30,6 @@ const STEPS = [
   { step: "3", title: "Get actionable insights", desc: "View the full report: strengths, weaknesses, feature requests, trends, and prioritized action items." },
 ];
 
-const BENEFITS = [
-  { icon: Clock, title: "Save Hours of Manual Work", desc: "AI reads and categorizes thousands of reviews in seconds — no more manual spreadsheet work." },
-  { icon: Target, title: "Data-Driven Roadmap", desc: "Feature requests ranked by frequency help you prioritize what to build next based on real user demand." },
-  { icon: Users, title: "Competitive Intelligence", desc: "Analyze competitor app reviews to discover their weaknesses and find market opportunities." },
-  { icon: Lightbulb, title: "Improve User Satisfaction", desc: "Identify recurring pain points and fix them before they turn into negative reviews." },
-];
 
 const FAQS = [
   { q: "What is AI Review Insights and how does it work?", a: "AI Review Insights is a free tool by Letsmetrix that uses artificial intelligence to analyze all reviews of any Shopify app. It automatically extracts strengths, weaknesses, feature requests, and sentiment trends — giving you a complete picture without reading every review." },
