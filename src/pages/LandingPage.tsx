@@ -118,7 +118,7 @@ export default function LandingPage() {
         <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-16 text-center relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-[140px] text-center relative z-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-5 border border-primary/20">
             <Brain className="w-3.5 h-3.5" />
             AI-Powered Review Analysis
@@ -134,7 +134,7 @@ export default function LandingPage() {
 
           {/* ── Highlighted Search Container ── */}
           <div className="max-w-2xl mx-auto relative">
-            <div className="bg-card rounded-2xl border border-border shadow-xl p-6 sm:p-8">
+            <div className="bg-card rounded-2xl border border-border shadow-2xl shadow-primary/10 p-6 sm:p-8 relative z-20">
               {/* Search input — dominant */}
               <div className="relative">
                 <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-muted-foreground" />
@@ -248,7 +248,9 @@ export default function LandingPage() {
       </section>
 
       {/* ===== HOW TO USE ===== */}
-      <section className="bg-white border-b border-border" id="how-to-use">
+      <section className="bg-white relative" id="how-to-use">
+        {/* Gradient fade from hero */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[hsl(30,60%,98%)] to-transparent pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
@@ -261,11 +263,11 @@ export default function LandingPage() {
           </p>
 
           <div className="relative">
-            <div className="hidden sm:block absolute top-8 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-0.5 bg-border" />
+            <div className="hidden sm:block absolute top-8 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-0.5 bg-border/50" />
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative z-10">
               {STEPS.map((s, i) => (
                 <div key={i} className="text-center">
-                  <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-md">
+                  <div className="w-14 h-14 rounded-full bg-primary/80 text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-sm">
                     {s.step}
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{s.title}</h3>
