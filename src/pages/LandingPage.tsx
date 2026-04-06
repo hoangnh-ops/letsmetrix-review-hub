@@ -277,8 +277,29 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ===== DASHBOARD PREVIEW ===== */}
+      <section className="bg-secondary/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20 mb-4">
+            <BarChart3 className="w-3.5 h-3.5" /> Live Dashboard
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">See Insights in Seconds</h2>
+          <p className="text-sm text-muted-foreground mb-10 max-w-lg mx-auto">
+            AI breaks down reviews into actionable data
+          </p>
+          <div className="rounded-xl border border-border shadow-lg overflow-hidden">
+            <img
+              src={dashboardPreview}
+              alt="AI Review Insights dashboard showing review tracking, sentiment scores, and rating distribution"
+              className="w-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ===== WHY CHOOSE ===== */}
-      <section className="bg-secondary/50" id="features">
+      <section className="bg-background" id="features">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
@@ -298,27 +319,6 @@ export default function LandingPage() {
                 <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== DASHBOARD PREVIEW ===== */}
-      <section className="bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
-          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20 mb-4">
-            <BarChart3 className="w-3.5 h-3.5" /> Live Dashboard
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">See Insights in Seconds</h2>
-          <p className="text-sm text-muted-foreground mb-10 max-w-lg mx-auto">
-            AI breaks down reviews into actionable data
-          </p>
-          <div className="rounded-xl border border-border shadow-lg overflow-hidden">
-            <img
-              src={dashboardPreview}
-              alt="AI Review Insights dashboard showing review tracking, sentiment scores, and rating distribution"
-              className="w-full"
-              loading="lazy"
-            />
           </div>
         </div>
       </section>
