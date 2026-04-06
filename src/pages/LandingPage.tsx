@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import heroBanner from "@/assets/hero-banner.jpg";
 import { useNavigate } from "react-router-dom";
 import {
   Search, ArrowRight, Brain, BarChart3, MessageSquare, TrendingUp,
