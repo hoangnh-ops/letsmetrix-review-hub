@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import AppInfoSidebar from "@/components/review-tool/AppInfoSidebar";
+import AppHeader from "@/components/review-tool/AppHeader";
+import AISummary from "@/components/review-tool/AISummary";
 import StrengthsWeaknesses from "@/components/review-tool/StrengthsWeaknesses";
 import FeatureRequestsTab from "@/components/review-tool/FeatureRequestsTab";
 import ActionItemsTab from "@/components/review-tool/ActionItemsTab";
 import ReviewsTab from "@/components/review-tool/ReviewsTab";
 import ReviewStatsTab from "@/components/review-tool/ReviewStatsTab";
+import SentimentTrendChart from "@/components/review-tool/SentimentTrendChart";
+import GetNotifiedSection from "@/components/review-tool/GetNotifiedSection";
 import CrossSellStrip from "@/components/review-tool/CrossSellStrip";
 import SearchBar from "@/components/review-tool/SearchBar";
 import { appInfo } from "@/data/mockData";
@@ -64,7 +67,7 @@ export default function ResultPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Top bar — matching letsmetrix.com */}
+      {/* Top bar */}
       <header className="border-b bg-card sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-4">
           <a href="/" className="flex items-center gap-1 flex-shrink-0">
@@ -87,7 +90,7 @@ export default function ResultPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6">
         {/* Breadcrumb */}
         <nav className="text-xs text-muted-foreground mb-4 flex items-center gap-1.5">
           <a href="/" className="hover:text-foreground transition-colors">Home</a>
@@ -100,40 +103,49 @@ export default function ResultPage() {
         {isAnalyzing ? (
           <AnalyzingOverlay reviewCount={appInfo.totalReviews} />
         ) : (
-          <div className="flex flex-col lg:flex-row gap-6">
-            {/* Sidebar */}
-            <AppInfoSidebar />
+          <div className="space-y-6">
+            {/* App Header - horizontal */}
+            <AppHeader />
 
-            {/* Main content */}
-            <div className="flex-1 min-w-0 space-y-6">
-              <StrengthsWeaknesses />
+            {/* AI Summary */}
+            <AISummary />
 
-              <Tabs defaultValue="features" className="animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-                <TabsList className="bg-secondary w-full justify-start rounded-lg p-1 h-auto flex-wrap">
-                  <TabsTrigger value="features" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                    Feature Requests
-                  </TabsTrigger>
-                  <TabsTrigger value="actions" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                    Action Items
-                  </TabsTrigger>
-                  <TabsTrigger value="reviews" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                    Reviews
-                  </TabsTrigger>
-                  <TabsTrigger value="stats" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                    Review Stats
-                    <span className="ml-1 text-[9px] font-bold bg-primary text-primary-foreground px-1 py-0.5 rounded">NEW</span>
-                  </TabsTrigger>
-                </TabsList>
-                <div className="mt-4">
-                  <TabsContent value="features"><FeatureRequestsTab /></TabsContent>
-                  <TabsContent value="actions"><ActionItemsTab /></TabsContent>
-                  <TabsContent value="reviews"><ReviewsTab /></TabsContent>
-                  <TabsContent value="stats"><ReviewStatsTab /></TabsContent>
-                </div>
-              </Tabs>
+            {/* Strengths & Weaknesses */}
+            <StrengthsWeaknesses />
 
-              <CrossSellStrip />
-            </div>
+            {/* Sentiment Trend Chart */}
+            <SentimentTrendChart />
+
+            {/* Tabs: Feature Requests, Action Items, Reviews, Review Stats */}
+            <Tabs defaultValue="features" className="animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+              <TabsList className="bg-secondary w-full justify-start rounded-lg p-1 h-auto flex-wrap">
+                <TabsTrigger value="features" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
+                  Feature Requests
+                </TabsTrigger>
+                <TabsTrigger value="actions" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
+                  Action Items
+                </TabsTrigger>
+                <TabsTrigger value="reviews" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
+                  Reviews
+                </TabsTrigger>
+                <TabsTrigger value="stats" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
+                  Review Stats
+                  <span className="ml-1 text-[9px] font-bold bg-primary text-primary-foreground px-1 py-0.5 rounded">NEW</span>
+                </TabsTrigger>
+              </TabsList>
+              <div className="mt-4">
+                <TabsContent value="features"><FeatureRequestsTab /></TabsContent>
+                <TabsContent value="actions"><ActionItemsTab /></TabsContent>
+                <TabsContent value="reviews"><ReviewsTab /></TabsContent>
+                <TabsContent value="stats"><ReviewStatsTab /></TabsContent>
+              </div>
+            </Tabs>
+
+            {/* Get Notified */}
+            <GetNotifiedSection />
+
+            {/* Cross-sell */}
+            <CrossSellStrip />
           </div>
         )}
       </main>
