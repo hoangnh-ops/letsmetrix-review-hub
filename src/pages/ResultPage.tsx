@@ -137,6 +137,9 @@ export default function ResultPage() {
               </div>
             </Tabs>
 
+            {/* Review List - standalone section */}
+            <ReviewListSection />
+
             {/* Get Notified */}
             <GetNotifiedSection />
 
