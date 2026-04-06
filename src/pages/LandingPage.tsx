@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import heroBanner from "@/assets/hero-banner.jpg";
 import { useNavigate } from "react-router-dom";
 import {
   Search, ArrowRight, Brain, BarChart3, MessageSquare, TrendingUp,
@@ -229,16 +228,6 @@ export default function LandingPage() {
             <button onClick={() => setQuery("Oberlo")} className="text-primary hover:underline font-medium">Oberlo</button>
           </p>
 
-          {/* Hero Banner */}
-          <div className="mt-12 max-w-3xl mx-auto">
-            <img
-              src={heroBanner}
-              alt="AI Review Insights dashboard showing review analysis charts and sentiment data for Shopify apps"
-              width={1280}
-              height={720}
-              className="w-full rounded-xl shadow-2xl border"
-            />
-          </div>
         </div>
       </section>
 
