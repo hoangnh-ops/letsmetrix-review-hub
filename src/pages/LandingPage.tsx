@@ -37,13 +37,6 @@ const BENEFITS = [
   { icon: Lightbulb, title: "Improve User Satisfaction", desc: "Identify recurring pain points and fix them before they turn into negative reviews." },
 ];
 
-const METRICS_EXPLAINED = [
-  { title: "Sentiment Score", desc: "A percentage score (0–100%) representing the overall sentiment of all reviews. Calculated by classifying each review as Positive, Neutral, or Negative using NLP.", icon: TrendingUp },
-  { title: "Mention Count", desc: "The number of times a specific topic, feature, or issue is mentioned across all reviews. Higher counts indicate stronger signals.", icon: MessageSquare },
-  { title: "Signal Strength", desc: "A composite metric combining mention frequency, recency, and sentiment weight. Helps prioritize which issues matter most.", icon: BarChart3 },
-  { title: "Review Velocity", desc: "The rate at which new reviews are being posted over time. A spike may indicate a recent update, bug, or marketing campaign.", icon: LineChart },
-];
-
 const FAQS = [
   { q: "What is AI Review Insights and how does it work?", a: "AI Review Insights is a free tool by Letsmetrix that uses artificial intelligence to analyze all reviews of any Shopify app. It automatically extracts strengths, weaknesses, feature requests, and sentiment trends — giving you a complete picture without reading every review." },
   { q: "Which Shopify apps can I analyze with Review Insights?", a: "You can analyze any app listed on the Shopify App Store. Our database is regularly updated and covers thousands of apps. If an app isn't found, you can suggest it and we'll add it to our index." },
@@ -167,7 +160,6 @@ export default function LandingPage() {
               </button>
             </div>
 
-            {/* Validation Error */}
             {validationError && (
               <div className="flex items-center gap-1.5 mt-2 text-destructive text-xs font-medium animate-fade-in-up">
                 <AlertCircle className="w-3.5 h-3.5" />
@@ -175,7 +167,6 @@ export default function LandingPage() {
               </div>
             )}
 
-            {/* Autocomplete dropdown */}
             {showSuggestions && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-card border rounded-xl shadow-xl z-20 overflow-hidden animate-fade-in-up">
                 {filtered.map((app) => (
@@ -200,7 +191,6 @@ export default function LandingPage() {
               </div>
             )}
 
-            {/* Not found state */}
             {notFoundMode && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-lmx-warning/30 rounded-xl shadow-xl z-20 p-5 animate-fade-in-up">
                 <div className="text-center space-y-3">
@@ -228,22 +218,24 @@ export default function LandingPage() {
             <button onClick={() => setQuery("PageFly")} className="text-primary hover:underline font-medium">PageFly</button>,{" "}
             <button onClick={() => setQuery("Oberlo")} className="text-primary hover:underline font-medium">Oberlo</button>
           </p>
-
         </div>
       </section>
 
       {/* ===== HOW TO USE ===== */}
-      <section className="bg-secondary/50" id="how-to-use">
+      <section className="bg-background" id="how-to-use">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+              <Zap className="w-3.5 h-3.5" /> How It Works
+            </span>
+          </div>
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">How to Use AI Review Insights Tool</h2>
           <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
             Get comprehensive review analysis in just 3 simple steps
           </p>
 
           <div className="relative">
-            {/* Connecting line */}
             <div className="hidden sm:block absolute top-8 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-0.5 bg-border" />
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative z-10">
               {STEPS.map((s, i) => (
                 <div key={i} className="text-center">
@@ -259,34 +251,19 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ===== MAIN FEATURES ===== */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20" id="features">
-        <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Why Use AI Review Insights Tool</h2>
-        <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-          All the insights you need from Shopify app reviews, powered by AI
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {FEATURES.map((f, i) => (
-            <div key={i} className="bg-card rounded-xl border p-6 hover:shadow-md hover:border-primary/20 transition-all group">
-              <div className={`w-11 h-11 rounded-lg ${f.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                <f.icon className={`w-5 h-5 ${f.color}`} />
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ===== BENEFITS ===== */}
-       <section className="bg-secondary/50">
+      <section className="bg-secondary/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+              <Lightbulb className="w-3.5 h-3.5" /> Benefits
+            </span>
+          </div>
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Benefits for App Developers & Merchants</h2>
           <p className="text-sm text-muted-foreground text-center mb-14 max-w-lg mx-auto">
             Save time and make data-driven decisions with AI-powered review analysis
           </p>
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
-            {/* Left: Illustration */}
             <div className="w-full lg:w-5/12 flex-shrink-0">
               <img
                 src={benefitsImg}
@@ -297,7 +274,6 @@ export default function LandingPage() {
                 height={600}
               />
             </div>
-            {/* Right: Benefits list */}
             <div className="w-full lg:w-7/12 space-y-6">
               {BENEFITS.map((b, i) => (
                 <div key={i} className="flex items-start gap-4">
@@ -315,53 +291,40 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ===== METRICS EXPLAINED ===== */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20" id="metrics">
-        <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Understanding the Metrics</h2>
-        <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-          Learn what each metric means and how it's calculated
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {METRICS_EXPLAINED.map((m, i) => {
-            const colors = [
-              { border: "border-l-primary", bg: "bg-primary/10", text: "text-primary" },
-              { border: "border-l-lmx-info", bg: "bg-lmx-info/10", text: "text-lmx-info" },
-              { border: "border-l-lmx-success", bg: "bg-lmx-success/10", text: "text-lmx-success" },
-              { border: "border-l-lmx-purple", bg: "bg-lmx-purple/10", text: "text-lmx-purple" },
-            ];
-            const c = colors[i % colors.length];
-            return (
-              <div key={i} className={`bg-card rounded-xl border border-l-4 ${c.border} p-5 hover:shadow-md transition-shadow`}>
-                <div className="flex items-start gap-4">
-                  <div className={`w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center flex-shrink-0`}>
-                    <m.icon className={`w-5 h-5 ${c.text}`} />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="font-semibold text-foreground">{m.title}</h3>
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <Info className="w-3.5 h-3.5 text-muted-foreground hover:text-foreground transition-colors" />
-                        </TooltipTrigger>
-                        <TooltipContent className="max-w-xs text-xs">
-                          {m.desc}
-                        </TooltipContent>
-                      </Tooltip>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
-                  </div>
+      {/* ===== MAIN FEATURES ===== */}
+      <section className="bg-background" id="features">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+              <Star className="w-3.5 h-3.5" /> Core Features
+            </span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Why Use AI Review Insights Tool</h2>
+          <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
+            All the insights you need from Shopify app reviews, powered by AI
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {FEATURES.map((f, i) => (
+              <div key={i} className="bg-card rounded-xl border p-6 hover:shadow-md hover:border-primary/20 transition-all group">
+                <div className={`w-11 h-11 rounded-lg ${f.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <f.icon className={`w-5 h-5 ${f.color}`} />
                 </div>
+                <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
-
-
 
       {/* ===== FAQ ===== */}
       <section className="bg-secondary/50" id="faq">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+              <MessageSquare className="w-3.5 h-3.5" /> FAQ
+            </span>
+          </div>
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">Frequently Asked Questions</h2>
           <p className="text-sm text-muted-foreground text-center mb-10">
             Common questions about AI Review Insights for Shopify Apps
