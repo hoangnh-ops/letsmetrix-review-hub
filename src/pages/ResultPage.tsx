@@ -125,9 +125,6 @@ export default function ResultPage() {
                 <TabsTrigger value="actions" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
                   Action Items
                 </TabsTrigger>
-                <TabsTrigger value="reviews" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                  Reviews
-                </TabsTrigger>
                 <TabsTrigger value="stats" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
                   Review Stats
                   <span className="ml-1 text-[9px] font-bold bg-primary text-primary-foreground px-1 py-0.5 rounded">NEW</span>
@@ -136,7 +133,6 @@ export default function ResultPage() {
               <div className="mt-4">
                 <TabsContent value="features"><FeatureRequestsTab /></TabsContent>
                 <TabsContent value="actions"><ActionItemsTab /></TabsContent>
-                <TabsContent value="reviews"><ReviewsTab /></TabsContent>
                 <TabsContent value="stats"><ReviewStatsTab /></TabsContent>
               </div>
             </Tabs>
