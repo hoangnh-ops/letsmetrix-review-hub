@@ -235,15 +235,18 @@ export default function LandingPage() {
       {/* ===== HOW TO USE ===== */}
       <section className="bg-background" id="how-to-use">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+              <Zap className="w-3.5 h-3.5" /> How It Works
+            </span>
+          </div>
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">How to Use AI Review Insights Tool</h2>
           <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
             Get comprehensive review analysis in just 3 simple steps
           </p>
 
           <div className="relative">
-            {/* Connecting line */}
             <div className="hidden sm:block absolute top-8 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-0.5 bg-border" />
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative z-10">
               {STEPS.map((s, i) => (
                 <div key={i} className="text-center">
