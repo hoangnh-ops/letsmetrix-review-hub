@@ -16,12 +16,12 @@ const SAMPLE_APPS = [
 ];
 
 const WHY_CHOOSE = [
-  { icon: Clock, title: "Save Time", desc: "AI analyzes thousands of reviews in seconds", color: "text-primary", bg: "bg-primary/10" },
-  { icon: Target, title: "Build Roadmap", desc: "Prioritize features based on real user demand", color: "text-lmx-success", bg: "bg-lmx-success/10" },
-  { icon: Users, title: "Track Competitors", desc: "Discover competitor weaknesses and opportunities", color: "text-lmx-info", bg: "bg-lmx-info/10" },
-  { icon: Lightbulb, title: "Improve UX", desc: "Fix recurring pain points before bad reviews", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
-  { icon: TrendingUp, title: "Detect Trends", desc: "Monitor sentiment shifts over time", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
-  { icon: Brain, title: "AI Summary", desc: "Get a concise overview without reading every review", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
+  { icon: Clock, title: "Save Time", desc: "AI reads and categorizes thousands of reviews in seconds. No more manual spreadsheet work or endless scrolling.", color: "text-primary", bg: "bg-primary/10" },
+  { icon: Target, title: "Build Roadmap", desc: "Feature requests ranked by frequency help you prioritize what to build next. Make product decisions based on real user demand.", color: "text-lmx-success", bg: "bg-lmx-success/10" },
+  { icon: Users, title: "Track Competitors", desc: "Analyze competitor app reviews to discover their weaknesses. Find market gaps and opportunities before anyone else.", color: "text-lmx-info", bg: "bg-lmx-info/10" },
+  { icon: Lightbulb, title: "Improve UX", desc: "Identify recurring pain points and fix them proactively. Prevent negative reviews before they impact your rating.", color: "text-lmx-warning", bg: "bg-lmx-warning/10" },
+  { icon: TrendingUp, title: "Detect Trends", desc: "Monitor how user sentiment shifts over weeks and months. Spot emerging issues or improvements early with trend analysis.", color: "text-lmx-danger", bg: "bg-lmx-danger/10" },
+  { icon: Brain, title: "AI Summary", desc: "Get a concise overview of all reviews without reading each one. Understand the big picture in seconds with AI-generated insights.", color: "text-lmx-purple", bg: "bg-lmx-purple/10" },
 ];
 
 const STEPS = [
