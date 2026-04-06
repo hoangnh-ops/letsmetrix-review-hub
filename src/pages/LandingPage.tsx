@@ -117,25 +117,18 @@ export default function LandingPage() {
       </header>
 
       {/* ===== HERO SECTION ===== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(30,100%,98%)] via-background to-[hsl(24,100%,97%)]">
-        {/* Decorative orange blobs like letsmetrix.com */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-2xl" />
-        <div className="absolute top-1/3 -left-16 w-64 h-64 bg-primary/8 rounded-full blur-2xl" />
-        <div className="absolute -bottom-10 right-1/4 w-72 h-72 bg-primary/6 rounded-full blur-3xl" />
-        {/* Floating orange accent shapes */}
-        <div className="absolute top-16 right-[15%] w-16 h-16 bg-primary/15 rounded-2xl rotate-12 animate-pulse" />
-        <div className="absolute bottom-20 left-[10%] w-12 h-12 bg-primary/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 right-[8%] w-8 h-8 bg-primary/20 rounded-lg rotate-45 animate-pulse" style={{ animationDelay: '0.5s' }} />
-        {/* Subtle dot grid */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, hsl(24 95% 53%) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        {/* Decorative lines */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-14 text-center relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-6 border border-primary/20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(30,100%,98%)] to-background">
+        {/* Minimal decorative accents */}
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-16 text-center relative z-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-5 border border-primary/20">
             <Brain className="w-3.5 h-3.5" />
             AI-Powered Review Analysis
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight mb-3">
             AI Review Insights
             <br />
             <span className="text-primary">for Shopify Apps</span>
@@ -144,51 +137,83 @@ export default function LandingPage() {
             Analyze all reviews with AI. Understand strengths, weaknesses, feature requests and sentiment trends — without reading every single review.
           </p>
 
-          {/* Search Bar with Validation */}
-          <div className="max-w-xl mx-auto relative">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <input
-                ref={inputRef}
-                type="text"
-                value={query}
-                onChange={(e) => { setQuery(e.target.value); setValidationError(""); }}
-                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                placeholder="Enter a Shopify App name..."
-                aria-label="Search for a Shopify app"
-                className={`w-full pl-12 pr-36 py-4 text-base bg-card rounded-xl border-2 outline-none text-foreground placeholder:text-muted-foreground shadow-lg transition-all ${
-                  validationError
-                    ? "border-destructive focus:border-destructive focus:ring-4 focus:ring-destructive/10"
-                    : "border-border focus:border-primary/50 focus:ring-4 focus:ring-primary/10"
-                }`}
-              />
+          {/* ── Highlighted Search Container ── */}
+          <div className="max-w-2xl mx-auto relative">
+            <div className="bg-card rounded-2xl border border-border shadow-xl p-6 sm:p-8">
+              {/* Search input — dominant */}
+              <div className="relative">
+                <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-muted-foreground" />
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={query}
+                  onChange={(e) => { setQuery(e.target.value); setValidationError(""); }}
+                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                  placeholder="Enter a Shopify App name..."
+                  aria-label="Search for a Shopify app"
+                  className={`w-full pl-14 pr-4 py-5 text-lg bg-secondary/50 rounded-xl border-2 outline-none text-foreground placeholder:text-muted-foreground transition-all ${
+                    validationError
+                      ? "border-destructive focus:border-destructive focus:ring-4 focus:ring-destructive/10"
+                      : "border-border focus:border-primary/50 focus:ring-4 focus:ring-primary/10"
+                  }`}
+                />
+              </div>
+
+              {/* CTA Button — full width below input */}
               <button
                 onClick={handleSearch}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity flex items-center gap-1.5"
+                className="w-full mt-4 bg-primary text-primary-foreground py-4 rounded-xl font-semibold text-base hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-md"
               >
+                <Search className="w-5 h-5" />
                 Analyze Reviews
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </button>
+
+              {validationError && (
+                <div className="flex items-center gap-1.5 mt-3 text-destructive text-xs font-medium animate-fade-in-up">
+                  <AlertCircle className="w-3.5 h-3.5" />
+                  {validationError}
+                </div>
+              )}
+
+              {/* Usage hint chips */}
+              <div className="flex flex-wrap items-center justify-center gap-2 mt-5">
+                <span className="text-xs text-muted-foreground">Try:</span>
+                {SAMPLE_APPS.map((app) => (
+                  <button
+                    key={app.name}
+                    onClick={() => setQuery(app.name)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary border border-border transition-colors"
+                  >
+                    <img src={app.icon} alt={app.name} className="w-4 h-4 rounded" />
+                    {app.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* Inline stats hint */}
+              <div className="flex items-center justify-center gap-4 mt-4 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-lmx-success" /> Free to use</span>
+                <span className="flex items-center gap-1"><Zap className="w-3.5 h-3.5 text-primary" /> Instant results</span>
+                <span className="flex items-center gap-1"><BarChart3 className="w-3.5 h-3.5 text-lmx-info" /> 10k+ apps</span>
+              </div>
             </div>
 
-            {validationError && (
-              <div className="flex items-center gap-1.5 mt-2 text-destructive text-xs font-medium animate-fade-in-up">
-                <AlertCircle className="w-3.5 h-3.5" />
-                {validationError}
-              </div>
-            )}
-
+            {/* Suggestions dropdown */}
             {showSuggestions && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-card border rounded-xl shadow-xl z-20 overflow-hidden animate-fade-in-up">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-card border rounded-xl shadow-xl z-20 overflow-hidden animate-fade-in-up mx-6 sm:mx-8">
+                <div className="px-4 py-2 border-b bg-secondary/30">
+                  <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide">Matching Apps</p>
+                </div>
                 {filtered.map((app) => (
                   <button
                     key={app.name}
                     onClick={() => handleSelectApp(app.name)}
                     className="w-full flex items-center gap-3 px-4 py-3 hover:bg-secondary transition-colors text-left"
                   >
-                    <img src={app.icon} alt={app.name} className="w-8 h-8 rounded-lg border" />
+                    <img src={app.icon} alt={app.name} className="w-9 h-9 rounded-lg border" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground">{app.name}</p>
+                      <p className="text-sm font-semibold text-foreground">{app.name}</p>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Star className="w-3 h-3 fill-primary text-primary" />
                         <span>{app.rating}</span>
@@ -196,14 +221,15 @@ export default function LandingPage() {
                         <span>{app.reviews.toLocaleString()} reviews</span>
                       </div>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-[11px] text-primary font-medium bg-primary/10 px-2.5 py-1 rounded-full">Analyze</span>
                   </button>
                 ))}
               </div>
             )}
 
+            {/* Not found dropdown */}
             {notFoundMode && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-lmx-warning/30 rounded-xl shadow-xl z-20 p-5 animate-fade-in-up">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-lmx-warning/30 rounded-xl shadow-xl z-20 p-5 animate-fade-in-up mx-6 sm:mx-8">
                 <div className="text-center space-y-3">
                   <p className="text-sm font-medium text-foreground">App not found</p>
                   <p className="text-xs text-muted-foreground">We don't have data for this app yet. You can:</p>
@@ -223,12 +249,6 @@ export default function LandingPage() {
               </div>
             )}
           </div>
-
-          <p className="text-xs text-muted-foreground mt-4">
-            Try: <button onClick={() => setQuery("JETVEO")} className="text-primary hover:underline font-medium">JETVEO</button>,{" "}
-            <button onClick={() => setQuery("PageFly")} className="text-primary hover:underline font-medium">PageFly</button>,{" "}
-            <button onClick={() => setQuery("Oberlo")} className="text-primary hover:underline font-medium">Oberlo</button>
-          </p>
         </div>
       </section>
 
