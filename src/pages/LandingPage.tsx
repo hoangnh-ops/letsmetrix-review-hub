@@ -233,7 +233,7 @@ export default function LandingPage() {
       </section>
 
       {/* ===== HOW TO USE ===== */}
-      <section className="bg-secondary/50" id="how-to-use">
+      <section className="bg-background" id="how-to-use">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">How to Use AI Review Insights Tool</h2>
           <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
