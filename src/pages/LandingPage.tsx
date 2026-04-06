@@ -327,6 +327,7 @@ export default function LandingPage() {
             />
           </div>
         </div>
+      </section>
 
       {/* ===== FAQ ===== */}
       <section className="bg-secondary/50" id="faq">
