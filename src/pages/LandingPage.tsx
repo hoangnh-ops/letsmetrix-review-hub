@@ -133,7 +133,7 @@ export default function LandingPage() {
           </p>
 
           {/* ── Highlighted Search Container ── */}
-          <div className="max-w-2xl mx-auto relative">
+          <div className="max-w-2xl mx-auto relative -mb-16">
             <div className="bg-card rounded-2xl border border-border shadow-2xl shadow-primary/10 p-6 sm:p-8 relative z-20">
               {/* Search input — dominant */}
               <div className="relative">
