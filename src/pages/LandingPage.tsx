@@ -308,7 +308,10 @@ export default function LandingPage() {
               <Star className="w-3.5 h-3.5" /> Why Choose Us
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-10">Why Choose <span className="text-primary">LetsMetrix</span></h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-2">Why Choose <span className="text-primary">LetsMetrix</span></h2>
+          <p className="text-sm text-muted-foreground text-center mb-10 max-w-lg mx-auto">
+            Powerful features designed to help you make smarter decisions from real user feedback
+          </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {WHY_CHOOSE.map((item, i) => (
               <div key={i} className="bg-card rounded-xl border p-5 hover:shadow-md hover:border-primary/20 transition-all group">
