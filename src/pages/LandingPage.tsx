@@ -258,7 +258,7 @@ export default function LandingPage() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-2">How to Use <span className="text-primary">AI Review Insights</span> Tool</h2>
-          <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
+          <p className="text-base text-muted-foreground text-center mb-12 max-w-lg mx-auto">
             Get comprehensive review analysis in just 3 simple steps
           </p>
 
@@ -286,7 +286,7 @@ export default function LandingPage() {
             <BarChart3 className="w-3.5 h-3.5" /> Live Dashboard
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-2">See Insights <span className="text-primary">in Seconds</span></h2>
-          <p className="text-sm text-muted-foreground mb-10 max-w-lg mx-auto">
+          <p className="text-base text-muted-foreground mb-10 max-w-lg mx-auto">
             AI breaks down reviews into actionable data
           </p>
           <div className="rounded-xl border border-border shadow-lg overflow-hidden">
@@ -309,7 +309,7 @@ export default function LandingPage() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-2">Why Choose <span className="text-primary">LetsMetrix</span></h2>
-          <p className="text-sm text-muted-foreground text-center mb-10 max-w-lg mx-auto">
+          <p className="text-base text-muted-foreground text-center mb-10 max-w-lg mx-auto">
             Powerful features designed to help you make smarter decisions from real user feedback
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -337,7 +337,7 @@ export default function LandingPage() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-2">Frequently Asked <span className="text-primary">Questions</span></h2>
-          <p className="text-sm text-muted-foreground text-center mb-10">
+          <p className="text-base text-muted-foreground text-center mb-10">
             Common questions about AI Review Insights for Shopify Apps
           </p>
           <Accordion type="single" collapsible className="space-y-3">
