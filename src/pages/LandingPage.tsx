@@ -257,7 +257,7 @@ export default function LandingPage() {
               <Zap className="w-3.5 h-3.5" /> How It Works
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground text-center mb-2">How to Use <span className="text-primary">AI Review Insights</span> Tool</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-2">How to Use <span className="text-primary">AI Review Insights</span> Tool</h2>
           <p className="text-sm text-muted-foreground text-center mb-12 max-w-lg mx-auto">
             Get comprehensive review analysis in just 3 simple steps
           </p>
@@ -285,7 +285,7 @@ export default function LandingPage() {
           <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20 mb-4">
             <BarChart3 className="w-3.5 h-3.5" /> Live Dashboard
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-2">See Insights <span className="text-primary">in Seconds</span></h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-2">See Insights <span className="text-primary">in Seconds</span></h2>
           <p className="text-sm text-muted-foreground mb-10 max-w-lg mx-auto">
             AI breaks down reviews into actionable data
           </p>
@@ -308,7 +308,7 @@ export default function LandingPage() {
               <Star className="w-3.5 h-3.5" /> Why Choose Us
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground text-center mb-10">Why Choose <span className="text-primary">LetsMetrix</span></h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-10">Why Choose <span className="text-primary">LetsMetrix</span></h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {WHY_CHOOSE.map((item, i) => (
               <div key={i} className="bg-card rounded-xl border p-5 hover:shadow-md hover:border-primary/20 transition-all group">
@@ -333,7 +333,7 @@ export default function LandingPage() {
               <MessageSquare className="w-3.5 h-3.5" /> FAQ
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground text-center mb-2">Frequently Asked <span className="text-primary">Questions</span></h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground text-center mb-2">Frequently Asked <span className="text-primary">Questions</span></h2>
           <p className="text-sm text-muted-foreground text-center mb-10">
             Common questions about AI Review Insights for Shopify Apps
           </p>
@@ -356,7 +356,7 @@ export default function LandingPage() {
       <section className="bg-foreground">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-background mb-2">Explore More <span className="text-primary">Letsmetrix Tools</span></h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-background mb-2">Explore More <span className="text-primary">Letsmetrix Tools</span></h2>
             <p className="text-sm text-background/60">Grow your Shopify app with data-driven insights</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
