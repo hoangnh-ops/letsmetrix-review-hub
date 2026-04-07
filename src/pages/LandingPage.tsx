@@ -123,7 +123,7 @@ export default function LandingPage() {
             <Brain className="w-3.5 h-3.5" />
             AI-Powered Review Analysis
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight mb-3">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-3">
             AI Review Insights
             <br />
             <span className="text-primary">for Shopify Apps</span>
