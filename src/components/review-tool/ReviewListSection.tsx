@@ -1,26 +1,26 @@
 import { useState } from "react";
-import { Star, Filter, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { reviews } from "@/data/mockData";
 
 const tagConfig: Record<string, { label: string; class: string }> = {
-  support_praise: { label: "Support", class: "tag-support" },
-  bug_report: { label: "Bug", class: "tag-bug" },
-  ux_issue: { label: "UX", class: "tag-ux" },
+  support_praise: { label: "Great Support", class: "tag-support" },
+  bug_report: { label: "Pixel Not Firing", class: "tag-bug" },
+  ux_issue: { label: "Easy Setup", class: "tag-ux" },
   feature_request: { label: "Feature", class: "tag-feature" },
-  pricing_concern: { label: "Pricing", class: "tag-pricing" },
+  pricing_concern: { label: "Good Feed Quality", class: "tag-pricing" },
 };
 
 const Stars = ({ rating }: { rating: number }) => (
   <div className="flex gap-0.5">
     {[1, 2, 3, 4, 5].map((s) => (
-      <Star key={s} className={`w-3 h-3 ${s <= rating ? "fill-lmx-orange text-lmx-orange" : "text-border"}`} />
+      <Star key={s} className={`w-3.5 h-3.5 ${s <= rating ? "fill-lmx-orange text-lmx-orange" : "text-border"}`} />
     ))}
   </div>
 );
 
 const REVIEWS_PER_PAGE = 10;
 
-// Expand mock data to have more reviews for pagination demo
+// Expand mock data
 const allReviews = [
   ...reviews,
   ...reviews.map((r, i) => ({ ...r, id: r.id + 100 + i, date: "Mar 10, 2026" })),
@@ -33,45 +33,66 @@ export default function ReviewListSection() {
   const visible = allReviews.slice(startIdx, startIdx + REVIEWS_PER_PAGE);
 
   return (
-    <div className="space-y-4 animate-fade-in-up">
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-foreground">
-          Reviews ({allReviews.length})
-        </h3>
-        <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-muted-foreground" />
-          {["Rating", "Tag", "Sort"].map((f) => (
-            <div key={f} className="bg-secondary rounded-md px-3 py-1.5 text-xs text-muted-foreground cursor-pointer hover:text-foreground transition-colors">
-              {f}
-            </div>
-          ))}
-        </div>
+    <div className="bg-card rounded-lg border p-5 space-y-4 animate-fade-in-up">
+      <div>
+        <h3 className="text-base font-bold text-foreground">Review list</h3>
+        <p className="text-xs text-muted-foreground mt-0.5">{allReviews.length} Reviews</p>
       </div>
 
-      <div className="space-y-3">
+      {/* Filter bar */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <select className="text-xs border rounded-md px-2.5 py-1.5 bg-card text-foreground">
+          <option>Sort: Most recent</option>
+          <option>Sort: Highest rated</option>
+          <option>Sort: Lowest rated</option>
+        </select>
+        <select className="text-xs border rounded-md px-2.5 py-1.5 bg-card text-foreground">
+          <option>Status: All</option>
+          <option>Active</option>
+          <option>Archived</option>
+          <option>Deleted</option>
+        </select>
+        <select className="text-xs border rounded-md px-2.5 py-1.5 bg-card text-foreground">
+          <option>Rating: All</option>
+          <option>5 stars</option>
+          <option>4 stars</option>
+          <option>3 stars</option>
+          <option>2 stars</option>
+          <option>1 star</option>
+        </select>
+        <input type="date" className="text-xs border rounded-md px-2.5 py-1.5 bg-card text-muted-foreground" />
+        <input type="date" className="text-xs border rounded-md px-2.5 py-1.5 bg-card text-muted-foreground" />
+        <button className="ml-auto flex items-center gap-1.5 text-xs font-medium border rounded-md px-3 py-1.5 hover:bg-secondary transition-colors text-foreground">
+          <Download className="w-3.5 h-3.5" /> Export Reviews
+        </button>
+      </div>
+
+      {/* Review cards */}
+      <div className="divide-y">
         {visible.map((review) => (
-          <div key={review.id} className="bg-card rounded-lg border p-4 space-y-2">
+          <div key={review.id} className="py-4 first:pt-0 last:pb-0 space-y-2">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Stars rating={review.rating} />
-                <span className="text-xs text-muted-foreground">{review.date}</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <span>{review.country}</span>
-                <span>·</span>
-                <span>{review.author}</span>
+              <Stars rating={review.rating} />
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <span className="text-lmx-success font-medium">Active</span>
+                <span>{review.date}</span>
               </div>
             </div>
             <p className="text-sm text-foreground leading-relaxed">{review.content}</p>
-            <div className="flex gap-1.5 flex-wrap">
-              {review.tags.map((tag) => {
-                const cfg = tagConfig[tag];
-                return cfg ? (
-                  <span key={tag} className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${cfg.class}`}>
-                    {cfg.label}
-                  </span>
-                ) : null;
-              })}
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-muted-foreground">
+                {review.author} · {review.country}
+              </span>
+              <div className="flex gap-1.5 flex-wrap">
+                {review.tags.map((tag) => {
+                  const cfg = tagConfig[tag];
+                  return cfg ? (
+                    <span key={tag} className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${cfg.class}`}>
+                      {cfg.label}
+                    </span>
+                  ) : null;
+                })}
+              </div>
             </div>
           </div>
         ))}
