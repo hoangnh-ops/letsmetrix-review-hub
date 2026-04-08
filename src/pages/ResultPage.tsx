@@ -123,7 +123,7 @@ export default function ResultPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <h3 className="text-sm font-semibold text-foreground">Action Items</h3>
-                    <span className="text-[10px] font-bold bg-purple-600 text-primary-foreground px-2 py-0.5 rounded-full">Urgent</span>
+                    <span className="text-[10px] font-bold bg-accent text-accent-foreground px-2 py-0.5 rounded-full">Urgent</span>
                   </div>
                   <ActionItemsTab />
                 </div>
