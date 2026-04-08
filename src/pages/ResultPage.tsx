@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import AppHeader from "@/components/review-tool/AppHeader";
+import { useSearchParams } from "react-router-dom";
+import AppInfoSidebar from "@/components/review-tool/AppInfoSidebar";
 import AISummary from "@/components/review-tool/AISummary";
 import StrengthsWeaknesses from "@/components/review-tool/StrengthsWeaknesses";
 import FeatureRequestsTab from "@/components/review-tool/FeatureRequestsTab";
 import ActionItemsTab from "@/components/review-tool/ActionItemsTab";
 import ReviewListSection from "@/components/review-tool/ReviewListSection";
 import ReviewStatsTab from "@/components/review-tool/ReviewStatsTab";
-import SentimentTrendChart from "@/components/review-tool/SentimentTrendChart";
-import GetNotifiedSection from "@/components/review-tool/GetNotifiedSection";
 import CrossSellStrip from "@/components/review-tool/CrossSellStrip";
 import SearchBar from "@/components/review-tool/SearchBar";
 import { appInfo } from "@/data/mockData";
@@ -56,7 +53,6 @@ function AnalyzingOverlay({ reviewCount }: { reviewCount: number }) {
 
 export default function ResultPage() {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const appName = searchParams.get("app") || "JETVEO";
   const [isAnalyzing, setIsAnalyzing] = useState(true);
 
@@ -90,7 +86,7 @@ export default function ResultPage() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         {/* Breadcrumb */}
         <nav className="text-xs text-muted-foreground mb-4 flex items-center gap-1.5">
           <a href="/" className="hover:text-foreground transition-colors">Home</a>
@@ -103,48 +99,48 @@ export default function ResultPage() {
         {isAnalyzing ? (
           <AnalyzingOverlay reviewCount={appInfo.totalReviews} />
         ) : (
-          <div className="space-y-6">
-            {/* App Header - horizontal */}
-            <AppHeader />
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* Sidebar */}
+            <AppInfoSidebar />
 
-            {/* AI Summary */}
-            <AISummary />
+            {/* Main Content */}
+            <div className="flex-1 min-w-0 space-y-6">
+              {/* AI Summary */}
+              <AISummary />
 
-            {/* Strengths & Weaknesses */}
-            <StrengthsWeaknesses />
+              {/* Strengths & Weaknesses - 2 column */}
+              <StrengthsWeaknesses />
 
-            {/* Sentiment Trend Chart */}
-            <SentimentTrendChart />
-
-            {/* Tabs: Feature Requests, Action Items, Reviews, Review Stats */}
-            <Tabs defaultValue="features" className="animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-              <TabsList className="bg-secondary w-full justify-start rounded-lg p-1 h-auto flex-wrap">
-                <TabsTrigger value="features" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                  Feature Requests
-                </TabsTrigger>
-                <TabsTrigger value="actions" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                  Action Items
-                </TabsTrigger>
-                <TabsTrigger value="stats" className="text-xs data-[state=active]:bg-card data-[state=active]:shadow-sm rounded-md px-3 py-1.5">
-                  Review Stats
-                  <span className="ml-1 text-[9px] font-bold bg-primary text-primary-foreground px-1 py-0.5 rounded">NEW</span>
-                </TabsTrigger>
-              </TabsList>
-              <div className="mt-4">
-                <TabsContent value="features"><FeatureRequestsTab /></TabsContent>
-                <TabsContent value="actions"><ActionItemsTab /></TabsContent>
-                <TabsContent value="stats"><ReviewStatsTab /></TabsContent>
+              {/* Feature Requests & Action Items - 2 column */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in-up">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <h3 className="text-sm font-semibold text-foreground">Feature Requests</h3>
+                    <span className="text-[10px] font-bold bg-primary text-primary-foreground px-2 py-0.5 rounded-full">High</span>
+                  </div>
+                  <FeatureRequestsTab />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <h3 className="text-sm font-semibold text-foreground">Action Items</h3>
+                    <span className="text-[10px] font-bold bg-accent text-accent-foreground px-2 py-0.5 rounded-full">Urgent</span>
+                  </div>
+                  <ActionItemsTab />
+                </div>
               </div>
-            </Tabs>
 
-            {/* Review List - standalone section */}
-            <ReviewListSection />
+              {/* Review Status Tracking */}
+              <div className="animate-fade-in-up">
+                <h3 className="text-sm font-semibold text-foreground mb-3">Review Status Tracking</h3>
+                <ReviewStatsTab />
+              </div>
 
-            {/* Get Notified */}
-            <GetNotifiedSection />
+              {/* Review List */}
+              <ReviewListSection />
 
-            {/* Cross-sell */}
-            <CrossSellStrip />
+              {/* Cross-sell */}
+              <CrossSellStrip />
+            </div>
           </div>
         )}
       </main>

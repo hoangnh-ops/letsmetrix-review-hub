@@ -1,4 +1,4 @@
-import { Star, TrendingUp, TrendingDown, Minus, Lock, Bell, ExternalLink, AlertTriangle } from "lucide-react";
+import { Star, TrendingUp, TrendingDown, Minus, Bell, ExternalLink, AlertTriangle } from "lucide-react";
 import { appInfo, sentimentScores, spikeAlerts } from "@/data/mockData";
 
 const ScoreColor = (score: number) => {
@@ -15,95 +15,104 @@ const TrendIcon = ({ trend }: { trend: "up" | "down" | "flat" }) => {
 
 export default function AppInfoSidebar() {
   return (
-    <aside className="w-full lg:w-80 flex-shrink-0 space-y-5">
-      {/* A1: App Info */}
-      <div className="bg-card rounded-lg border p-5 space-y-4 animate-fade-in-up">
-        <div className="flex items-start gap-3">
-          <img src={appInfo.icon} alt={appInfo.name} className="w-14 h-14 rounded-xl border" />
-          <div className="min-w-0">
-            <h2 className="font-bold text-lg leading-tight text-foreground">{appInfo.name}</h2>
-            <p className="text-xs text-muted-foreground">{appInfo.developer}</p>
+    <aside className="w-full lg:w-72 flex-shrink-0">
+      <div className="lg:sticky lg:top-20 space-y-4">
+        {/* A1: App Info */}
+        <div className="bg-card rounded-lg border p-4 space-y-3 animate-fade-in-up">
+          <div className="flex items-start gap-3">
+            <img src={appInfo.icon} alt={appInfo.name} className="w-12 h-12 rounded-xl border" />
+            <div className="min-w-0">
+              <h2 className="font-bold text-base leading-tight text-foreground">{appInfo.name}</h2>
+              <p className="text-xs text-muted-foreground">by {appInfo.developer}</p>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1">
-            <Star className="w-4 h-4 fill-lmx-orange text-lmx-orange" />
-            <span className="font-semibold text-sm">{appInfo.rating}</span>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
+              <Star className="w-4 h-4 fill-lmx-orange text-lmx-orange" />
+              <span className="font-semibold text-sm">{appInfo.rating}</span>
+            </div>
+            <span className="text-xs text-muted-foreground">({appInfo.totalReviews.toLocaleString()} reviews)</span>
           </div>
-          <span className="text-xs text-muted-foreground">({appInfo.totalReviews.toLocaleString()} reviews)</span>
+          <a href="#" className="flex items-center gap-1 text-xs text-primary hover:underline">
+            View on Shopify <ExternalLink className="w-3 h-3" />
+          </a>
         </div>
-        <div className="space-y-1.5 text-xs text-muted-foreground">
-          <p>📦 {appInfo.installs} installs</p>
-          <p>💰 {appInfo.pricingPlan}</p>
-          <p>📅 Updated: {appInfo.lastUpdated}</p>
-          <p>🏷️ {appInfo.category}</p>
-        </div>
-      </div>
 
-      {/* A2: Sentiment Scores */}
-      <div className="bg-card rounded-lg border p-5 space-y-3 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-        <h3 className="font-semibold text-sm text-foreground">Sentiment Scores</h3>
-        <div className="space-y-3">
-          {sentimentScores.map((s, i) => {
-            const isGated = i >= 3;
-            return (
-              <div key={s.label} className="relative">
-                <div className={isGated ? "gated-blur" : ""}>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-muted-foreground">{s.label}</span>
-                    <div className="flex items-center gap-1.5">
-                      <span className={`text-sm font-bold ${s.score >= 7 ? "text-lmx-success" : s.score >= 5 ? "text-lmx-warning" : "text-lmx-danger"}`}>
-                        {s.score.toFixed(1)}
-                      </span>
-                      {!isGated && <TrendIcon trend={s.trend} />}
-                      {!isGated && <span className="text-[10px] text-muted-foreground">{s.delta}</span>}
-                    </div>
-                  </div>
-                  <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                    <div className={`h-full rounded-full transition-all ${ScoreColor(s.score)}`} style={{ width: `${s.score * 10}%` }} />
+        {/* A2: Sentiment Scores */}
+        <div className="bg-card rounded-lg border p-4 space-y-3 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          <h3 className="font-semibold text-sm text-foreground">Sentiment Scores</h3>
+          <div className="space-y-2.5">
+            {sentimentScores.map((s) => (
+              <div key={s.label}>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-xs text-muted-foreground">{s.label}</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className={`text-sm font-bold ${s.score >= 7 ? "text-lmx-success" : s.score >= 5 ? "text-lmx-warning" : "text-lmx-danger"}`}>
+                      {s.score.toFixed(1)}
+                    </span>
+                    <TrendIcon trend={s.trend} />
                   </div>
                 </div>
-                {isGated && i === 3 && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <button className="flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors">
-                      <Lock className="w-3 h-3" /> Unlock all scores →
-                    </button>
-                  </div>
-                )}
+                <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                  <div className={`h-full rounded-full transition-all ${ScoreColor(s.score)}`} style={{ width: `${s.score * 10}%` }} />
+                </div>
               </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* A3: Spike Alert */}
-      {spikeAlerts.length > 0 && (
-        <div className="bg-card rounded-lg border border-lmx-danger/30 p-5 space-y-3 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-lmx-danger" />
-            <h3 className="font-semibold text-sm text-foreground">Spike Alert</h3>
+            ))}
           </div>
-          {spikeAlerts.map((spike, i) => (
-            <div key={i} className="bg-lmx-danger-bg rounded-md p-3 space-y-1">
+        </div>
+
+        {/* A3: Alert Banner (Guest) */}
+        <div className="bg-card rounded-lg border p-4 space-y-3 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4 text-lmx-danger" />
+              <h3 className="font-semibold text-xs text-foreground">Alert monitoring</h3>
+            </div>
+            <button className="text-[10px] text-primary hover:underline font-medium">Sign up to enable</button>
+          </div>
+
+          {/* Spike strip */}
+          {spikeAlerts.length > 0 && spikeAlerts.map((spike, i) => (
+            <div key={i} className="bg-lmx-danger-bg rounded-md p-2.5 space-y-0.5">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-lmx-danger text-primary-foreground uppercase">
-                  {spike.severity}
-                </span>
-                <span className="text-xs font-medium text-foreground">{spike.cluster}</span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-lmx-danger text-primary-foreground uppercase">SPIKE</span>
+                <span className="text-xs font-medium text-foreground">{spike.cluster} +{spike.pctIncrease}%</span>
               </div>
-              <p className="text-xs text-muted-foreground">
-                +{spike.pctIncrease}% · {spike.current} vs {spike.baseline} baseline
+              <p className="text-[10px] text-muted-foreground">
+                {spike.current} vs {spike.baseline} baseline this week
               </p>
             </div>
           ))}
-          <button className="w-full flex items-center justify-center gap-1.5 text-xs font-medium bg-lmx-danger text-primary-foreground py-2 rounded-md hover:opacity-90 transition-opacity">
-            <Bell className="w-3 h-3" /> Get notified
+
+          {/* Alert toggles (dimmed for guest) */}
+          <div className="space-y-2 opacity-50 pointer-events-none">
+            {[
+              { label: "Negative review spike", desc: "Cluster grows > 200% / 7 days", on: true },
+              { label: "Sudden rating drop", desc: "Weekly avg drops > 0.5 stars", on: true },
+              { label: "1-star burst", desc: "> 10 reviews in 48h", on: false },
+            ].map((toggle) => (
+              <div key={toggle.label} className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-medium text-foreground">{toggle.label}</p>
+                  <p className="text-[10px] text-muted-foreground">{toggle.desc}</p>
+                </div>
+                <div className={`w-8 h-4 rounded-full ${toggle.on ? "bg-primary" : "bg-secondary"} relative`}>
+                  <div className={`w-3 h-3 rounded-full bg-card absolute top-0.5 ${toggle.on ? "right-0.5" : "left-0.5"}`} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <button className="w-full flex items-center justify-center gap-1.5 text-xs font-medium border border-dashed border-muted-foreground/30 text-muted-foreground py-2 rounded-md hover:border-primary hover:text-primary transition-colors">
+            <Bell className="w-3 h-3" /> Sign up to enable alerts
           </button>
-          <a href="#" className="flex items-center justify-center gap-1 text-xs text-primary hover:underline">
-            Track on Letsmetrix <ExternalLink className="w-3 h-3" />
-          </a>
         </div>
-      )}
+
+        {/* Track link */}
+        <a href="#" className="flex items-center justify-center gap-1 text-xs text-primary hover:underline py-2">
+          Track this app on letsmetrix →
+        </a>
+      </div>
     </aside>
   );
 }
